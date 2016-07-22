@@ -1,4 +1,4 @@
 # byte_me
 CSSI Final Project
 
-Author: Alexa Hankins
+Author: Valerie Fanelle, Alexa Hankins, and Adolfo Hermosillo
