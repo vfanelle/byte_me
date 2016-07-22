@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<header>
+  <title>Outfit</title>
+</header>
+
+<body>
+  <div> <!-- hour-by-hour weather-->
+    <table style="border:1px solid black">
+        <tr> <!-- table row 1-->
+          <th id=weather_title>Current Weather</th> <!-- table header 1/ (column 1, row 1)-->
+        </tr>
+    </table>
+
+    <table style="border:1px solid black"> <!-- table contains labels for and the type of clothing in the same block -->
+        <tr>
+          <th id=outfit_title>Outfit</th> <!-- row 1, column 1 -->
+        </tr>
+        <tr>
+          <th class=outfit_subtitles>Headwear:</th> <!-- row 2, column 1 -->
+        <tr>
+          <th class=outfit_subtitles>Top:</th> <!-- row 3, column 1 -->
+        </tr>
+        <tr>
+          <th class=outfit_subtitles>Bottoms:</th> <!-- row 4, column 1-->
+        </tr>
+        <tr>
+          <th class=outfit_subtitles>Shoes: <!-- row 5, column 1 -->
+        </tr>
+    </table>
+  </div>
+
+  <div> <!-- recommended fabrics and reasonign behind clothing choices explained-->
+    <h1 id=reasoning> Why This Outfit?</h1>
+      {{explanation}} <!-- should create database of reasoning for each piece of an outfit -->
+  </div>
+
+
+</body>
