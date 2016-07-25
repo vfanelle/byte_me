@@ -24,7 +24,6 @@ import webapp2
 
 class User(webapp2.RequestHandler):
         zip_code = ndb.IntegerProperty(required=True)
-        country_code = ndb.IntegerProperty(required=True)
         gender = ndb.BooleanProperty(required=True)
         body_temp = ndb.BooleanProperty(required=True)
 
@@ -36,19 +35,18 @@ jinja_environment = jinja2.Environment(
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Welcome to Induviae!')
-        # template = jinja_environment.get_template('main.html')
-        # self.response.write(template.render())
+        template = jinja_environment.get_template('main.html')
+        self.response.write(template.render())
 
 
     # def post(self):
-        #template = jinja_environment.get_template('input.html')
+        template = jinja_environment.get_template('input.html')
         #how do I transition the main page to the input page? Do I need a separate handler?
         #self.response.write(template.render())
-        # user_zip = self.request.get('zip_code') #change info in quotes to correspond to input.html input variables
-        # user_country = self.request.get('country_code')
-        # user_gender = self.request.get('gender')
-        # user_temp = self.request.get('average_feel')
-        # user = User(zip_code=user_zip, country_code=user_country, gender=user_gener, body_temp=user_temp)
+        # user_location = self.request.get('') #change info in quotes to correspond to input.html input variables
+        # user_gender = self.request.get('')
+        # user_temp = self.request.get('')
+        # user = User(zip_code=user_location, gender=user_gener, body_temp=user_temp)
         # key = user.put()
 
 
