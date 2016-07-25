@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Tangerine', serif;
+       font-size: 48px;
+}
+.button {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 100px;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+}
