@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-application: byte-me-induviae
 =======
 application: byte-me-appengine
 >>>>>>> dc55d159d17910bd6a0789587d94d5b755087a68
@@ -11,7 +10,6 @@ threadsafe: yes
 handlers:
 - url: /favicon\.ico
 <<<<<<< HEAD
-  static_files: /favicon.ico
 =======
   static_files: favicon.ico
 >>>>>>> dc55d159d17910bd6a0789587d94d5b755087a68
@@ -28,5 +26,5 @@ libraries:
 - name: jinja2
   version: latest
 - name: markupsafe
-  version: latest 
+  version: latest
 >>>>>>> dc55d159d17910bd6a0789587d94d5b755087a68
