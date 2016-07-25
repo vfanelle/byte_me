@@ -9,7 +9,8 @@ import webapp2
 
 #creates a user
 class User(ndb.Model):
-        zip_code = ndb.IntegerProperty(required=True)
+        city_code = ndb.StringProperty(required=True)
+        user_state = ndb.StringProperty(required=True)
         gender = ndb.StringProperty(required=True)
         body_temp = ndb.StringProperty(required=True)
 
