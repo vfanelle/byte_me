@@ -40,7 +40,7 @@ class MainHandler(webapp2.RequestHandler):
 
 
     # def post(self):
-        template = jinja_environment.get_template('input.html')
+        #template = jinja_environment.get_template('input.html')
         #how do I transition the main page to the input page? Do I need a separate handler?
         #self.response.write(template.render())
         # user_location = self.request.get('') #change info in quotes to correspond to input.html input variables
