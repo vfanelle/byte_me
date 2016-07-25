@@ -1,27 +1,32 @@
 <!DOCTYPE html>
   <header>
     <title></title>
-    <link rel="stylesheet" href="/Users/demouser/desktop/cssi/byte_me/byte-me-appengine/static/induviae_style.css">
+    <link rel="stylesheet" href="induviae_style.css">
   </header>
   <body>
     <h1>
       <!-- Main site welcome -->
       Welcome to Induviae!
     </h1>
-    <h2>
+    <h3>
       <!-- Description of who    we are, and what our website does-->
-      <p>The Byte_me&copy; team is glad to introduce you to our latest development: Induviae!</p> <br>
+      <p>The Byte_me&copy; team is glad to introduce you to our latest development: Induviae!</p>
       <p>An interactive website designed to answer two routine morning questions: "What is the weather?" and "what should I wear?"</p>
-    </h2>
+    </h3><br>
     <!-- This is the end of what the main page was -->
-    <h3>Please enter your information</h3>
-    <form action="/outfit" method="post"><!-- This is a super important line
+    <h2>Please enter your information</h2>
+
+    <form action="/outfit"><!-- method="post"<-this bit goes in the form part,
+      but the page will not work with it rn because the main.py will not load
+      with it
+
+       This is a super important line
       The action portion will direct the page to the output page
       once all of the data has been entered. -->
       Please enter your zip code:<!--This is for the API input information-->
       <input type="text" name="zip_code"><br><br>
       Please enter your country code:<!--This is for the API input information-->
-      <div class="dropdown">
+    </form>  <div class="dropdown">
         <button onclick="myFunction()" class="dropbtn">Code</button>
         <div id="myDropdown" class="dropdown-content">
           <a href="#">Link 1</a>
@@ -29,7 +34,7 @@
           <a href="#">Link 3</a>
         </div>
       </div>
-
+<form action="/outfit">
       <script>
             /* When the user clicks on the button,
       toggle between hiding and showing the dropdown content */
