@@ -6,6 +6,9 @@ h1{
   font-family: 'Tangerine', serif;
   font-size: 48px
 }
+#reasoning{
+
+}
 .button {
   background-color: #000000;
   color:#FFFFFF;
@@ -16,12 +19,14 @@ h1{
   -webkit-border-radius: 20px;
 }
 #weather_table{
+  display: inline;
   border: 1px solid black;
 }
 
-table{
+#clothes_table{
   display: inline;
   border: 1px solid black;
+  color: purple;
 }
 
 form{
