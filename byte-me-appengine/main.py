@@ -24,7 +24,6 @@ import webapp2
 
 class User(webapp2.RequestHandler):
         zip_code = ndb.IntegerProperty(required=True)
-        country_code = ndb.IntegerProperty(required=True)
         gender = ndb.BooleanProperty(required=True)
         body_temp = ndb.BooleanProperty(required=True)
 
@@ -38,7 +37,6 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('input.html')
         self.response.write(template.render())
 
-    
 class OutputHandler(webapp2.RequestHandler):
     def post(self):
         user_zip = self.request.get('zip_code') #change info in quotes to correspond to input.html input variables
