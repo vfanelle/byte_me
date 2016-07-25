@@ -14,23 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-<<<<<<< HEAD
-import webapp2
-import jinja2
-import os
-
-template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_environment = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(template_dir)
-)
-
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
-
-app = webapp2.WSGIApplication([
-    ('/', MainHandler)
-=======
 from google.appengine.ext import ndb
 import jinja2
 import logging
@@ -52,12 +35,12 @@ jinja_environment = jinja2.Environment(
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Welcome to Induviae!')
-        # template = jinja_environment.get_template('main.html')
-        # self.response.write(template.render())
+        template = jinja_environment.get_template('main.html')
+        self.response.write(template.render())
 
 
     # def post(self):
-        #template = jinja_environment.get_template('input.html')
+        template = jinja_environment.get_template('input.html')
         #how do I transition the main page to the input page? Do I need a separate handler?
         #self.response.write(template.render())
         # user_location = self.request.get('') #change info in quotes to correspond to input.html input variables
@@ -78,7 +61,7 @@ class OutputHandler(webapp2.RequestHandler):
         response = urllib2.urlopen(req)
         response_text = response.read()
         response_data = json.loads(response_text)
-        outside_avg_temp = response_data['main']['temp'])
+        outside_avg_temp = response_data['main']['temp']
         outside_humidity = response_data['main']['humidity']
         outside_min_temp = response_data['main']['temp_min']
         outside_max_temp = response_data['main']['temp_max']
@@ -90,5 +73,4 @@ class OutputHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/outfit', OutputHandler)
->>>>>>> dc55d159d17910bd6a0789587d94d5b755087a68
 ], debug=True)
