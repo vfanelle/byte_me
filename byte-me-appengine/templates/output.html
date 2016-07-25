@@ -9,12 +9,22 @@
   <div> <!-- hour-by-hour weather-->
     <table id="weather_table">
         <tr> <!-- table row 1-->
-          <th id=weather_title>Current Weather <br></th>
-          <th> High: {{outside_max_temp}}°F </th> <!-- table header 1/ (column 1, row 1)-->
-          <th> Low: {{outside_min_temp}}°F </th>
-          <th> Average Temperature: {{outside_avg_temp}}°F </th>
-          <th> Humidity: {{outside_humidity}}% </th>
-          <th> Wind Speed: {{wind_speed}} mph </th>
+          <th id=weather_title>Current Weather</th>
+        </tr>
+        <tr><!-- table row 2-->
+          <td> High: {{outside_max_temp}}°F </td>
+        </tr>
+        <tr> <!-- table row 3-->
+          <td> Low: {{outside_min_temp}}°F </td>
+        </tr>
+        <tr><!-- table row 4-->
+          <td> Average Temperature: {{outside_avg_temp}}°F </td>
+        </tr>
+        <tr><!-- table row 5-->
+          <td> Humidity: {{outside_humidity}}% </td>
+        </tr>
+        <tr><!-- table row 6-->
+          <td> Wind Speed: {{wind_speed}} mph </td>
         </tr>
     </table>
 
