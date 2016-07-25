@@ -6,7 +6,7 @@ import urllib
 import urllib2
 import webapp2
 
-class User(webapp2.RequestHandler):
+class User(ndb.Model):
         zip_code = ndb.IntegerProperty(required=True)
         gender = ndb.BooleanProperty(required=True)
         body_temp = ndb.BooleanProperty(required=True)
