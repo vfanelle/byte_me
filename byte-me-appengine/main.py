@@ -28,8 +28,8 @@ class MainHandler(webapp2.RequestHandler):
 class OutputHandler(webapp2.RequestHandler):
 
     def get(self):
-        user_zip = self.request.get('zip_code')
-        user_country = self.request.get('country_code')
+        user_city = self.request.get('city_code')
+        user_state = self.request.get('state_code')
         user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
         user = User(zip_code=int(user_zip), gender=user_gender,
@@ -43,9 +43,8 @@ class OutputHandler(webapp2.RequestHandler):
         #variables referenced in output.html
         #setting up the weather api, used meme example
         #API key = d18790d3f622ff63af5b3fc8902387db
-        req = ("http://api.openweathermap.org/data/2.5/weather?zip="
-            +str(user.zip_code)+
-            ",us&appid=d18790d3f622ff63af5b3fc8902387db")
+        #new API key = a7117aaeea209774c2669ef696152f31
+        req = ("http://api.wunderground.com/api/417c24aae230083b/forecast/q/CA/San_Francisco.json
         response = urllib2.urlopen(req)
         response_text = response.read()
         response_data = json.loads(response_text)
@@ -74,9 +73,7 @@ app = webapp2.WSGIApplication([
 ], debug=True)
 
 def temperature(Kelvin):
-     celsius = Kelvin - 273.15
-     fahrenheit = (celsius*1.8) + 32
-     return fahrenheit
+     return Kelvin
 
 def mph(meters_per_sec):
     mph = meters_per_sec*2.25
