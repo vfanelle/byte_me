@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 application: byte-me-induviae
+=======
+application: byte-me-appengine
+>>>>>>> dc55d159d17910bd6a0789587d94d5b755087a68
 version: 1
 runtime: python27
 api_version: 1
@@ -6,7 +10,11 @@ threadsafe: yes
 
 handlers:
 - url: /favicon\.ico
+<<<<<<< HEAD
   static_files: /favicon.ico
+=======
+  static_files: favicon.ico
+>>>>>>> dc55d159d17910bd6a0789587d94d5b755087a68
   upload: favicon\.ico
 
 - url: .*
@@ -15,3 +23,10 @@ handlers:
 libraries:
 - name: webapp2
   version: "2.5.2"
+<<<<<<< HEAD
+=======
+- name: jinja2
+  version: latest
+- name: markupsafe
+  version: latest 
+>>>>>>> dc55d159d17910bd6a0789587d94d5b755087a68
