@@ -14,23 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-<<<<<<< HEAD
-import webapp2
-import jinja2
-import os
-
-template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_environment = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(template_dir)
-)
-
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
-
-app = webapp2.WSGIApplication([
-    ('/', MainHandler)
-=======
 from google.appengine.ext import ndb
 import jinja2
 import logging
@@ -90,5 +73,4 @@ class OutputHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/outfit', OutputHandler)
->>>>>>> dc55d159d17910bd6a0789587d94d5b755087a68
 ], debug=True)
