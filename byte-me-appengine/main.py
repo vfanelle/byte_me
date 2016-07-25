@@ -63,7 +63,7 @@ class OutputHandler(webapp2.RequestHandler):
         response = urllib2.urlopen(req)
         response_text = response.read()
         response_data = json.loads(response_text)
-        outside_avg_temp = response_data['main']['temp'])
+        outside_avg_temp = response_data['main']['temp']
         outside_humidity = response_data['main']['humidity']
         outside_min_temp = response_data['main']['temp_min']
         outside_max_temp = response_data['main']['temp_max']
