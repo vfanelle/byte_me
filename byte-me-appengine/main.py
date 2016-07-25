@@ -34,8 +34,7 @@ jinja_environment = jinja2.Environment(
 #handler for main page
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Welcome to Induviae!')
-        template = jinja_environment.get_template('main.html')
+        template = jinja_environment.get_template('input.html')
         self.response.write(template.render())
 
 
