@@ -37,22 +37,17 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('input.html')
         self.response.write(template.render())
 
-
-    # def post(self):
-        #template = jinja_environment.get_template('input.html')
-        #how do I transition the main page to the input page? Do I need a separate handler?
-        #self.response.write(template.render())
-        # user_location = self.request.get('') #change info in quotes to correspond to input.html input variables
-        # user_gender = self.request.get('')
-        # user_temp = self.request.get('')
-        # user = User(zip_code=user_location, gender=user_gener, body_temp=user_temp)
-        # key = user.put()
-
-
 class OutputHandler(webapp2.RequestHandler):
-    def get(self):
-        # template = jinja_environment.get_template('output.html')
-        # self.response.write(template.render({explanation}))
+    def post(self):
+        user_zip = self.request.get('zip_code') #change info in quotes to correspond to input.html input variables
+        user_country = self.request.get('country_code')
+        user_gender =   self.request.get('gender')
+        user_temp = self.request.get('average_feel')
+        user = User(zip_code=user_zip, country_code=user_country, gender=user_gener, body_temp=user_temp)
+        key = user.put()
+
+        template = jinja_environment.get_template('output.html')
+        self.response.write(template.render({explanation}))
 
         #setting up the weather api, used meme example
         #API key = d18790d3f622ff63af5b3fc8902387db
@@ -66,9 +61,14 @@ class OutputHandler(webapp2.RequestHandler):
         outside_max_temp = response_data['main']['temp_max']
         wind_speed = response_data['wind']['speed']
 
+<<<<<<< HEAD
         # template = jinja_environment.get_template('output.html')
         # html = template.render({'output_weather_img':weather_img})
         self.response.write('output page')
+=======
+        template = jinja_environment.get_template('output.html')
+        html = template.render({'output_weather_img':weather_img})
+>>>>>>> 4610ef995f78295bb7bb0208341c3682072381d7
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
