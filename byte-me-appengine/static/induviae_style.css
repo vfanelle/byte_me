@@ -1,10 +1,20 @@
 body{
   text-align: center;
-  background-image:
+  background-image: url(http://www.winwallpapers.net/w1/2012/02/vienna-challange.jpg);
+  margin-bottom: 10px;
 }
-h1{
+.boxed {
+  margin-top: 150px;
+}
+.welcome {
   font-family: 'Tangerine', serif;
-  font-size: 48px
+  font-size: 50px
+}
+
+}
+.go {
+  opacity: 0.5;
+
 }
 .button {
   background-color: #000000;
@@ -17,6 +27,8 @@ h1{
 }
 form{
   display: inline;
+  padding-bottom: 5px;
+
 }
 #rainy{
   background-image: url("https://images4.alphacoders.com/831/83196.jpg");
