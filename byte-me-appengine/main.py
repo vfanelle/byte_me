@@ -23,7 +23,8 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
 class OutputHandler(webapp2.RequestHandler):
-    def post(self):
+
+    def get(self):
         user_zip = self.request.get('zip_code') #change info in quotes to correspond to input.html input variables
         user_country = self.request.get('country_code')
         user_gender = self.request.get('gender')
@@ -31,8 +32,8 @@ class OutputHandler(webapp2.RequestHandler):
         user = User(zip_code=int(user_zip), gender=user_gender, body_temp=user_temp)
         key = user.put()
 
-        template = jinja_environment.get_template('output.html')
-        self.response.write(template.render())
+        # template = jinja_environment.get_template('output.html')
+        # self.response.write(template.render())
 
         #setting up the weather api, used meme example
         #API key = d18790d3f622ff63af5b3fc8902387db
@@ -41,16 +42,27 @@ class OutputHandler(webapp2.RequestHandler):
         response_text = response.read()
         response_data = json.loads(response_text)
         outside_avg_temp = response_data['main']['temp']
+        outside_avg_temp = temperature(outside_avg_temp)
         outside_humidity = response_data['main']['humidity']
         outside_min_temp = response_data['main']['temp_min']
         outside_max_temp = response_data['main']['temp_max']
         wind_speed = response_data['wind']['speed']
+        wind_speed = mph(wind_speed)
 
-        # template = jinja_environment.get_template('output.html')
-        # html = template.render({'output_weather_img':weather_img})
-        self.response.write('output page')
+        template = jinja_environment.get_template('output.html')
+        html = template.render({'outside_max_temp':outside_max_temp, 'outside_min_temp':outside_min_temp, 'outside_avg_temp':outside_avg_temp, 'outside_humidity':outside_humidity, 'wind_speed':wind_speed})
+        self.response.write(html)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/outfit', OutputHandler)
 ], debug=True)
+
+def temperature(Kelvin):
+     celsius = Kelvin - 273.15
+     fahrenheit = (celsius*1.8) + 32
+     return fahrenheit
+
+def mph(meters_per_sec):
+    mph = meters_per_sec*2.25
+    return mph
