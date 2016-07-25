@@ -6,7 +6,7 @@
   <body>
     <h1>
       <!-- Main site welcome -->
-      Welcome to Induviae!
+      Welcome to Nothing!
     </h1>
     <h3>
       <!-- Description of who    we are, and what our website does-->
@@ -16,7 +16,7 @@
     <!-- This is the end of what the main page was -->
     <h2>Please enter your information</h2>
 
-    <form action="/outfit"><!-- method="post"<-this bit goes in the form part,
+    <form action="/outfit" method="get"><!--this bit goes in the form part,
       but the page will not work with it rn because the main.py will not load
       with it
 
@@ -26,7 +26,7 @@
       Please enter your zip code:<!--This is for the API input information-->
       <input type="text" name="zip_code"><br><br>
       Please enter your country code:<!--This is for the API input information-->
-    </form>  <div class="dropdown">
+    <div class="dropdown">
         <button onclick="myFunction()" class="dropbtn">Code</button>
         <div id="myDropdown" class="dropdown-content">
           <a href="#">Link 1</a>
@@ -34,7 +34,7 @@
           <a href="#">Link 3</a>
         </div>
       </div>
-<form action="/outfit">
+
       <script>
             /* When the user clicks on the button,
       toggle between hiding and showing the dropdown content */

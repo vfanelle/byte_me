@@ -2,14 +2,19 @@
 
 <header>
   <title>Outfit</title>
-  <link rel="stylesheet" href="induviae_style.css"
+  <link rel="stylesheet" href="induviae_style.css">
 </header>
 
 <body id="{{ output_weather_img }}">
   <div> <!-- hour-by-hour weather-->
     <table style="border:1px solid black">
         <tr> <!-- table row 1-->
-          <th id=weather_title>Current Weather</th> <!-- table header 1/ (column 1, row 1)-->
+          <th id=weather_title>Current Weather <br></th>
+          <th> High: {{outside_max_temp}}°F </th> <!-- table header 1/ (column 1, row 1)-->
+          <th> Low: {{outside_min_temp}}°F </th>
+          <th> Average Temperature: {{outside_avg_temp}}°F </th>
+          <th> Humidity: {{outside_humidity}}% </th>
+          <th> Wind Speed: {{wind_speed}} mph </th>
         </tr>
     </table>
 
