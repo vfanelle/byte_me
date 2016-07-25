@@ -68,6 +68,7 @@ class OutputHandler(webapp2.RequestHandler):
 
         # template = jinja_environment.get_template('output.html')
         # html = template.render({'output_weather_img':weather_img})
+        self.response.write('output page')
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
