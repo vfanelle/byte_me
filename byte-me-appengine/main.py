@@ -61,14 +61,9 @@ class OutputHandler(webapp2.RequestHandler):
         outside_max_temp = response_data['main']['temp_max']
         wind_speed = response_data['wind']['speed']
 
-<<<<<<< HEAD
         # template = jinja_environment.get_template('output.html')
         # html = template.render({'output_weather_img':weather_img})
         self.response.write('output page')
-=======
-        template = jinja_environment.get_template('output.html')
-        html = template.render({'output_weather_img':weather_img})
->>>>>>> 4610ef995f78295bb7bb0208341c3682072381d7
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
