@@ -18,13 +18,8 @@ body{
 #reasoning{ /*Output page, Why these clothes*/
 
 }
-<<<<<<< HEAD
-/* the let's go button*/
-.button {
-=======
 
 .button { /*Input page, submit button*/
->>>>>>> 3e11a0b71b23f9bd522aa554caf90d7100d202d2
   background-color: #000000;
   color:#FFFFFF;
   padding: 10px;
