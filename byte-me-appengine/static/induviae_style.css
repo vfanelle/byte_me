@@ -1,5 +1,6 @@
 body{
   text-align: center;
+  background-image:
 }
 h1{
   font-family: 'Tangerine', serif;
@@ -11,5 +12,25 @@ h1{
   padding: 10px;
   border-radius:25px;
   font-size: 20px;
-
+}
+#rainy{
+  background-image:
+}
+#sunny{
+  background-image:
+}
+#overcast{
+  background-image:
+}
+#snowy{
+  background-image:
+}
+#hailing{
+  background-image:
+}
+#foggy{
+  background-image:
+}
+#thunderstorm{
+  background-image:
 }

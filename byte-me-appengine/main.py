@@ -18,7 +18,7 @@ from google.appengine.ext import ndb
 import jinja2
 import logging
 import os
-import urllib2
+import urllib
 import urllib2
 import webapp2
 
@@ -67,7 +67,8 @@ class OutputHandler(webapp2.RequestHandler):
         outside_max_temp = response_data['main']['temp_max']
         wind_speed = response_data['wind']['speed']
 
-
+        # template = jinja_environment.get_template('output.html')
+        # html = template.render({'output_weather_img':weather_img})
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
