@@ -25,7 +25,7 @@ class OutputHandler(webapp2.RequestHandler):
     def post(self):
         user_zip = self.request.get('zip_code') #change info in quotes to correspond to input.html input variables
         user_country = self.request.get('country_code')
-        user_gender =   self.request.get('gender')
+        user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
         user = User(zip_code=user_zip, country_code=user_country, gender=user_gener, body_temp=user_temp)
         key = user.put()
