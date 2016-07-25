@@ -16,16 +16,17 @@
 #
 from google.appengine.ext import ndb
 import jinja2
+import json
 import logging
 import os
 import urllib
 import urllib2
 import webapp2
 
-class User(webapp2.RequestHandler):
+class User(ndb.Model):
         zip_code = ndb.IntegerProperty(required=True)
-        gender = ndb.BooleanProperty(required=True)
-        body_temp = ndb.BooleanProperty(required=True)
+        gender = ndb.StringProperty(required=True)
+        body_temp = ndb.StringProperty(required=True)
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
@@ -40,18 +41,17 @@ class MainHandler(webapp2.RequestHandler):
 class OutputHandler(webapp2.RequestHandler):
     def post(self):
         user_zip = self.request.get('zip_code') #change info in quotes to correspond to input.html input variables
-        user_country = self.request.get('country_code')
         user_gender =   self.request.get('gender')
         user_temp = self.request.get('average_feel')
-        user = User(zip_code=user_zip, country_code=user_country, gender=user_gener, body_temp=user_temp)
+        user = User(zip_code=int(user_zip), gender=user_gender, body_temp=user_temp)
         key = user.put()
 
         template = jinja_environment.get_template('output.html')
-        self.response.write(template.render({explanation}))
+        self.response.write(template.render())
 
         #setting up the weather api, used meme example
         #API key = d18790d3f622ff63af5b3fc8902387db
-        req = "http://api.openweathermap.org/data/2.5/weather?zip="+user.zip_code+",us&appid=d18790d3f622ff63af5b3fc8902387db"
+        req = "http://api.openweathermap.org/data/2.5/weather?zip="+str(user.zip_code)+",us&appid=d18790d3f622ff63af5b3fc8902387db"
         response = urllib2.urlopen(req)
         response_text = response.read()
         response_data = json.loads(response_text)
