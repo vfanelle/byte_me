@@ -1,10 +1,20 @@
 body{
   text-align: center;
-  background-image:
+  background-image: url(http://www.winwallpapers.net/w1/2012/02/vienna-challange.jpg);
+  margin-bottom: 10px;
 }
-h1{
+.boxed {
+  margin-top: 150px;
+}
+.welcome {
   font-family: 'Tangerine', serif;
-  font-size: 48px
+  font-size: 50px
+}
+
+}
+.go {
+  opacity: 0.5;
+
 }
 #reasoning{ /*Output page, Why these clothes*/
 
@@ -34,11 +44,12 @@ form{ /*Input page so the boxes are next to
 #clothes_table{ /*Output page table properties,
   entire outfit table*/
   display: inline;
-  color: purple;
   border-collapse: collapse;
 }
+
 th, td { /*Output page table properties, table cells*/
   border: 1px solid black;
+  padding-bottom: 5px;
 }
 
 #rainy{ /*Output page background*/
