@@ -1,19 +1,3 @@
-#!/usr/bin/env python
-#
-# Copyright 2007 Google Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
 from google.appengine.ext import ndb
 import jinja2
 import json
@@ -41,7 +25,8 @@ class MainHandler(webapp2.RequestHandler):
 class OutputHandler(webapp2.RequestHandler):
     def post(self):
         user_zip = self.request.get('zip_code') #change info in quotes to correspond to input.html input variables
-        user_gender =   self.request.get('gender')
+        user_country = self.request.get('country_code')
+        user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
         user = User(zip_code=int(user_zip), gender=user_gender, body_temp=user_temp)
         key = user.put()
@@ -61,8 +46,9 @@ class OutputHandler(webapp2.RequestHandler):
         outside_max_temp = response_data['main']['temp_max']
         wind_speed = response_data['wind']['speed']
 
-        template = jinja_environment.get_template('output.html')
-        html = template.render({'output_weather_img':weather_img})
+        # template = jinja_environment.get_template('output.html')
+        # html = template.render({'output_weather_img':weather_img})
+        self.response.write('output page')
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
