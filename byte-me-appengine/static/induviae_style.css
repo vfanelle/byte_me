@@ -15,6 +15,9 @@ h1{
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
 }
+form{
+  display: inline;
+}
 #rainy{
   background-image: url("https://images4.alphacoders.com/831/83196.jpg");
 }
