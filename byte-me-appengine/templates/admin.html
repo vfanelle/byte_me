@@ -6,9 +6,9 @@
   <body>
      <form>
        What kind of clothing are you entering?
-       <input type="radio" name="top" value="Shirt"></input>
-       <input type="radio" name="bottom" value="Bottoms"></input>
-       <input type="radio" name="shoes" value="Shoes"></input>
+       <input type="radio" name="kind" value="shirt"></input>
+       <input type="radio" name="kind" value="bottom"></input>
+       <input type="radio" name="kind" value="shoes"></input>
 
        <br>
 
@@ -18,15 +18,17 @@
        Name of clothing:
        <input type="text" name="name"></input>
 
-       Maximum comfortable temperature:
-       <input type="text" name="max_temp"></input>
+       Average comfortable temperature:
+       <input type="text" name="temp"></input>
 
-       Minimum comfortable temperature:
-       <input type="text" name="min_temp"></input>
+       <!-- Minimum comfortable temperature:
+       <input type="text" name="min_temp"></input> -->
 
        Gender:
        <input type="radio" name="gender" value="male">Male<br>
        <input type="radio" name="gender" value="nonbinary">Nonbinary<br>
        <input type="radio" name="gender" value="female">Female<br><br>
+
+       <input class="button" type="submit" name="submit"></input>
      </form>
   </body>
