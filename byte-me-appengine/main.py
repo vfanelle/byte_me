@@ -9,10 +9,10 @@ import webapp2
 
 #creates a user
 class User(ndb.Model):
-        city_code = ndb.StringProperty(required=True)
+        user_city = ndb.StringProperty(required=True)
         user_state = ndb.StringProperty(required=True)
-        gender = ndb.StringProperty(required=True)
-        body_temp = ndb.StringProperty(required=True)
+        user_gender = ndb.StringProperty(required=True)
+        user_temp = ndb.StringProperty(required=True)
 
 #tells jinja2 where to look for future files
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -34,8 +34,8 @@ class OutputHandler(webapp2.RequestHandler):
         user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
 
-        user = User(city_code=user_city, user_state=user_state, gender=user_gender,
-            body_temp=user_temp)
+        user = User(user_city=user_city, user_state=user_state, user_gender=user_gender,
+            user_temp=user_temp)
         key = user.put()
 
         # template = jinja_environment.get_template('output.html')
@@ -64,7 +64,7 @@ class OutputHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('output.html')
         html = template.render({'outside_max_temp':outside_max_temp,
             'outside_min_temp':outside_min_temp,
-            'outside_avg_temp':outside_avg_temp,
+            'outside_condition':outside_condition,
             'outside_humidity':outside_humidity, 'wind_speed':wind_speed})
         self.response.write(html)
 
