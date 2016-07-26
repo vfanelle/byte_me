@@ -14,8 +14,13 @@ body{
   font-size: 20px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
+  padding-bottom: 10px
 
 }
+#lets_go{
+  margin-bottom: 10px
+}
+
 .welcome {
       font-size: 50px;
 }
@@ -33,13 +38,9 @@ body{
 
 
 /* output page css starts here*/
-table {
-
+.about {
+  font-size: 15px
 }
-
-#reasoning{ /*Output page, Why these clothes*/
-}
-
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
   background-color: rgba(0, 0, 0, 0.5);
@@ -71,10 +72,10 @@ table {
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   position: fixed;
-  z-index: 100;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  z-index: 95;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 a{
  color: white
