@@ -3,7 +3,7 @@ body{
   background-image: url(http://www.winwallpapers.net/w1/2012/02/vienna-challange.jpg);
   margin-bottom: 10px;
   font-family: "Bodoni MT", Didot, "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
-  color: black;
+  color: white;
 }
 
 .boxed {
@@ -18,8 +18,8 @@ body{
 }
 .welcome {
       font-size: 50px;
-
 }
+
 .mainbutton {
   background-color: #000000;
   color:#FFFFFF;
@@ -35,20 +35,20 @@ body{
 /* output page css starts here*/
 table {
    border: 1px solid black;
+}
 
-}
-}
 #reasoning{ /*Output page, Why these clothes*/
 }
 
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white
 }
 #div_reasoning{
   /*Output page, this allows there
     to be a color between the text and the image*/
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .button { /*Input page, submit button*/
