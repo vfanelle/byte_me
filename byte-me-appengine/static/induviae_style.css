@@ -35,20 +35,19 @@ body{
 /* output page css starts here*/
 table {
    border: 1px solid black;
+}
 
-}
-}
 #reasoning{ /*Output page, Why these clothes*/
 }
 
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 #div_reasoning{
   /*Output page, this allows there
     to be a color between the text and the image*/
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .button { /*Input page, submit button*/
