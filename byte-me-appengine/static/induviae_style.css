@@ -3,7 +3,7 @@ body{
   background-image: url(http://www.winwallpapers.net/w1/2012/02/vienna-challange.jpg);
   margin-bottom: 10px;
   font-family: "Bodoni MT", Didot, "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
-  color: black;
+  color: white;
 }
 
 .boxed {
@@ -18,8 +18,8 @@ body{
 }
 .welcome {
       font-size: 50px;
-
 }
+
 .mainbutton {
   background-color: #000000;
   color:#FFFFFF;
