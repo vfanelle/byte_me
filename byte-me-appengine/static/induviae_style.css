@@ -25,7 +25,6 @@ li a {
 li a:hover {
     background-color: gray;
 }
-
 .boxed {
   /*this code below makes the div translucent; Alexa, this applies to all of the
   html pages Adolfo*/
@@ -35,12 +34,9 @@ li a:hover {
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
 }
-
-}
 .welcome {
       font-size: 50px;
 }
-
 .mainbutton {
   background-color: #000000;
   color:#FFFFFF;
@@ -59,10 +55,8 @@ li a:hover {
 }
 
 /* output page css starts here*/
-
 #reasoning{ /*Output page, Why these clothes*/
 }
-
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
   color: white;
@@ -110,53 +104,42 @@ a{
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
 }
-
 form{ /*Input page so the boxes are next to
   the respective prompts*/
   display: inline;
 }
-
 #weather_table{ /*Output page table properties,
   entire weather table*/
   display: inline;
   border-collapse: collapse;
 }
-
 #clothes_table{ /*Output page table properties,
   entire outfit table*/
   display: inline;
   border-collapse: collapse;
 }
-
 th, td { /*Output page table properties, table cells*/
   border: 1px solid black;
   padding-bottom: 5px;
 }
-
-#rainy{ /*Output page background*/
+/*#rainy{ /*Output page background
   background-image: url("https://images4.alphacoders.com/831/83196.jpg");
 }
-
-#sunny{ /*Output page background*/
+#sunny{ /*Output page background
   background-image: url("https://enjoyingeachmoment.files.wordpress.com/2015/06/gkh-construction-sunny-skies-background.jpg");
 }
-
-#overcast{ /*Output page background*/
+#overcast{ /*Output page background
   background-image: url("https://lizasweeting.files.wordpress.com/2011/12/increasedexposureflltered.jpg");
 }
-
-#snowy{ /*Output page background*/
+#snowy{ /*Output page background
   background-image: url("http://wallpapercave.com/wp/kOdJfq7.jpg");
 }
-
-#hailing{ /*Output page background*/
+#hailing{ /*Output page background
   background-image: url("http://photovoltaicpoetry.com.au/wp-content/uploads/2013/11/North-Farm-stone-circle-hailing4.jpg");
 }
-
-#foggy{ /*Output page background*/
+#foggy{ /*Output page background
   background-image: url("http://static.tumblr.com/ab59c3ee543fa2ae5a5f565c35e983fc/d5jpbrj/N5imt6klr/tumblr_static_foggy_forest_1_1920.jpg");
 }
-
-#thunderstorm{ /*Output page background*/
+#thunderstorm{ /*Output page background
   background-image: url("http://wallpapercave.com/wp/DPtedbJ.jpg");
-}
+}*/
