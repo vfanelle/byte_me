@@ -34,7 +34,7 @@ body{
 
 /* output page css starts here*/
 table {
-   border: 1px solid black;
+
 }
 
 #reasoning{ /*Output page, Why these clothes*/
@@ -42,15 +42,43 @@ table {
 
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius:25px;
+  font-size: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
 }
 #div_reasoning{
   /*Output page, this allows there
     to be a color between the text and the image*/
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin: 10px;
+    border-radius:25px;
+    font-size: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
 }
-
+#navigation{
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  margin: 10px;
+  border-radius:25px;
+  font-size: 15px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+a{
+ color: white
+}
 .button { /*Input page, submit button*/
   background-color: #000000;
   color:#FFFFFF;
