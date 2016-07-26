@@ -33,7 +33,7 @@ class OutputHandler(webapp2.RequestHandler):
         user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
         user = User(zip_code=int(user_zip), gender=user_gender,
-            body_temp=user_temp)
+               body_temp=user_temp)
         key = user.put()
 
         # template = jinja_environment.get_template('output.html')
@@ -44,19 +44,18 @@ class OutputHandler(webapp2.RequestHandler):
         #setting up the weather api, used meme example
         #API key = d18790d3f622ff63af5b3fc8902387db
         #new API key = a7117aaeea209774c2669ef696152f31
-        req = ("http://api.wunderground.com/api/417c24aae230083b/forecast/q/CA/San_Francisco.json
+        req = ("http://api.wunderground.com/api"
+         "/417c24aae230083b/forecast/q/CA/San_Francisco.json")
         response = urllib2.urlopen(req)
         response_text = response.read()
         response_data = json.loads(response_text)
-        outside_avg_temp = response_data['main']['temp']
-        outside_avg_temp = temperature(outside_avg_temp)
-        outside_humidity = response_data['main']['humidity']
-        outside_min_temp = response_data['main']['temp_min']
-        outside_min_temp = temperature(outside_min_temp)
-        outside_max_temp = response_data['main']['temp_max']
-        outside_max_temp = temperature(outside_max_temp)
-        wind_speed = response_data['wind']['speed']
-        wind_speed = mph(wind_speed)
+        day = response_data['forecast']['simpleforecast']['forecastday'][0]['period']
+        outside_condition = response_data['forecast']['simpleforecast']['forecastday'][0]['conditions']
+        outside_humidity = response_data['forecast']['simpleforecast']['forecastday'][0]['avehumidity']
+        outside_min_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['low']['fahrenheit']
+        outside_max_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']
+        wind_speed = response_data['forecast']['simpleforecast']['forecastday'][0]['avewind']['mph']
+
 
         #tells jinja2 to get output.html from the "templates"
         #directory and render it with the given variables
@@ -71,10 +70,3 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/outfit', OutputHandler)
 ], debug=True)
-
-def temperature(Kelvin):
-     return Kelvin
-
-def mph(meters_per_sec):
-    mph = meters_per_sec*2.25
-    return mph
