@@ -12,25 +12,15 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
 
-#should I connect OutputHandler to outfits.py to display an outfit?
-
-class Top(ndb.Model):
-    shirt = ndb.StringProperty(required=True)
+class clothing(ndb.Model):
+    article = ndb.StringProperty(required=True)
+    name = ndb.StringProperty(required=True)
     min_temp = ndb.StringProperty(required=True)
     max_temp = ndb.StringProperty(required=True)
     gender = ndb.StringProperty(required=True)
-    body_temp = ndb.StringProperty(required=True)
+#add a couple of degrees to actual temp when deciding clothing for cold people
 
-class Bottom(ndb.Model):
-    bottom = ndb.StringProperty(required=True)
-    min_temp = ndb.StringProperty(required=True)
-    max_temp = ndb.StringProperty(required=True)
-    gender = ndb.StringProperty(required=True)
-        body_temp = ndb.StringProperty(required=True)
-
-class Shoes(ndb.Model):
-    shoes = ndb.StringProperty(required=True)
-    min_temp = ndb.StringProperty(required=True)
-    max_temp = ndb.StringProperty(required=True)
-    gender = ndb.StringProperty(required=True)
-    body_temp = ndb.StringProperty(required=True)
+class AdminHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('admin.html')
+        self.response.write(template.render())
