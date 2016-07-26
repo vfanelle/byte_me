@@ -43,6 +43,7 @@ table {
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
   background-color: rgba(0, 0, 0, 0.75);
+  color: white
 }
 #div_reasoning{
   /*Output page, this allows there
