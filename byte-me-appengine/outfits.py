@@ -14,19 +14,20 @@ jinja_environment = jinja2.Environment(
 
 #should I connect OutputHandler to outfits.py to display an outfit?
 
-class FemaleTop(ndb.Model):
-    shirt =
+class Top(ndb.Model):
+    shirt = ndb.StringProperty(required=True)
     min_temp = ndb.StringProperty(required=True)
     max_temp = ndb.StringProperty(required=True)
+    gender = ndb.StringProperty(required=True)
 
 class FemaleBottom(ndb.Model):
-    bottom =
+    bottom = ndb.StringProperty(required=True)
     min_temp = ndb.StringProperty(required=True)
     max_temp = ndb.StringProperty(required=True)
+    gender = ndb.StringProperty(required=True)
 
 class FemaleShoes(ndb.Model):
-    shoes =
+    shoes = ndb.StringProperty(required=True)
     min_temp = ndb.StringProperty(required=True)
     max_temp = ndb.StringProperty(required=True)
-
-class MaleTop()
+    gender = ndb.StringProperty(required=True)
