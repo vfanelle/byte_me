@@ -44,7 +44,13 @@ class OutputHandler(webapp2.RequestHandler):
         #variables referenced in output.html
         #used meme example to set up API
         #new API key = a7117aaeea209774c2669ef696152f31
-        req = ("http://api.wunderground.com/api/417c24aae230083b/forecast/q/" + user.user_state + "/" + user.user_city + ".json")
+        req = "http://api.wunderground.com/"
+        city_words = user.user_city.split()
+        # ["Chapel", "Hill"]
+        city = "_".join(city_words)
+        # "Chapel_Hill"
+        path = "api/417c24aae230083b/forecast/q/" + user.user_state + "/" + city + ".json"
+        req = req + path
         response = urllib2.urlopen(req)
         response_text = response.read()
         response_data = json.loads(response_text)
