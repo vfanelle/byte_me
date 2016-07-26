@@ -19,8 +19,13 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
 
-#handler for main page to display input.html
 class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('main.html')
+        self.response.write(template.render())
+
+#handler for main page to display input.html
+class InputHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('input.html')
         self.response.write(template.render())
@@ -67,5 +72,6 @@ class OutputHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    ('/info', InputHandler),
     ('/outfit', OutputHandler)
 ], debug=True)
