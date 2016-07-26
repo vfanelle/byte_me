@@ -7,12 +7,12 @@ import urllib
 import urllib2
 import webapp2
 
-#creates a user
+#defines a user object
 class User(ndb.Model):
-        city_code = ndb.StringProperty(required=True)
+        user_city = ndb.StringProperty(required=True)
         user_state = ndb.StringProperty(required=True)
-        gender = ndb.StringProperty(required=True)
-        body_temp = ndb.StringProperty(required=True)
+        user_gender = ndb.StringProperty(required=True)
+        user_temp = ndb.StringProperty(required=True)
 
 #tells jinja2 where to look for future files
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -29,24 +29,21 @@ class MainHandler(webapp2.RequestHandler):
 class OutputHandler(webapp2.RequestHandler):
 
     def get(self):
+        #stores user's input into variables
         user_city = self.request.get('city_code')
         user_state = self.request.get('state_code')
         user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
 
-        user = User(city_code=user_city, user_state=user_state, gender=user_gender,
-            body_temp=user_temp)
+        #stores user's input into a user object that is stored into a database
+        user = User(user_city=user_city, user_state=user_state, user_gender=user_gender,
+            user_temp=user_temp)
         key = user.put()
-
-        # template = jinja_environment.get_template('output.html')
-        # self.response.write(template.render())
 
         #grabs weather information for user from API and stores into
         #variables referenced in output.html
-        #setting up the weather api, used meme example
-        #API key = d18790d3f622ff63af5b3fc8902387db
+        #used meme example to set up API
         #new API key = a7117aaeea209774c2669ef696152f31
-
         req = ("http://api.wunderground.com/api/417c24aae230083b/forecast/q/" + user.user_state + "/" + user.user_city + ".json")
         response = urllib2.urlopen(req)
         response_text = response.read()
@@ -64,7 +61,7 @@ class OutputHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('output.html')
         html = template.render({'outside_max_temp':outside_max_temp,
             'outside_min_temp':outside_min_temp,
-            'outside_avg_temp':outside_avg_temp,
+            'outside_condition':outside_condition,
             'outside_humidity':outside_humidity, 'wind_speed':wind_speed})
         self.response.write(html)
 
