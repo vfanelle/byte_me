@@ -2,20 +2,49 @@ body{
   text-align: center;
   background-image: url(http://www.winwallpapers.net/w1/2012/02/vienna-challange.jpg);
   margin-bottom: 10px;
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
+  color: white;
 }
+
 .boxed {
-  margin-top: 150px;
+  /*this code below makes the div translucent; Alexa this applies to all of the
+  html pages*/
+  background: rgba(0, 0, 0, 0.5);
+  border-radius:25px;
+  font-size: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+
 }
 .welcome {
-  font-family: 'Tangerine', serif;
-  font-size: 50px
-}
-.go {
-  opacity: 0.5;
+      font-size: 50px;
 
+}
+.mainbutton {
+  background-color: #000000;
+  color:#FFFFFF;
+  padding: 10px;
+  border-radius:25px;
+  font-size: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  margin-bottom: 250px;
+}
+
+
+/* output page css starts here*/
 }
 #reasoning{ /*Output page, Why these clothes*/
+}
 
+#div_output{ /*Output page, this allows there
+  to be a color between the text and the image*/
+  background-color: rgba(255, 255, 255, 0.75);
+}
+#div_reasoning{
+  /*Output page, this allows there
+    to be a color between the text and the image*/
+    background-color: rgba(255, 255, 255, 0.75);
 }
 
 .button { /*Input page, submit button*/

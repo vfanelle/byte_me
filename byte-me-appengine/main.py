@@ -9,7 +9,8 @@ import webapp2
 
 #creates a user
 class User(ndb.Model):
-        zip_code = ndb.IntegerProperty(required=True)
+        city_code = ndb.StringProperty(required=True)
+        user_state = ndb.StringProperty(required=True)
         gender = ndb.StringProperty(required=True)
         body_temp = ndb.StringProperty(required=True)
 
@@ -32,8 +33,9 @@ class OutputHandler(webapp2.RequestHandler):
         user_state = self.request.get('state_code')
         user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
-        user = User(zip_code=int(user_zip), gender=user_gender,
-               body_temp=user_temp)
+
+        user = User(city_code=user_city, user_state=user_state, gender=user_gender,
+            body_temp=user_temp)
         key = user.put()
 
         # template = jinja_environment.get_template('output.html')
@@ -44,8 +46,8 @@ class OutputHandler(webapp2.RequestHandler):
         #setting up the weather api, used meme example
         #API key = d18790d3f622ff63af5b3fc8902387db
         #new API key = a7117aaeea209774c2669ef696152f31
-        req = ("http://api.wunderground.com/api"
-         "/417c24aae230083b/forecast/q/CA/San_Francisco.json")
+
+        req = ("http://api.wunderground.com/api/417c24aae230083b/forecast/q/" + user.user_state + "/" + user.user_city + ".json")
         response = urllib2.urlopen(req)
         response_text = response.read()
         response_data = json.loads(response_text)
