@@ -19,15 +19,18 @@ class Top(ndb.Model):
     min_temp = ndb.StringProperty(required=True)
     max_temp = ndb.StringProperty(required=True)
     gender = ndb.StringProperty(required=True)
+    body_temp = ndb.StringProperty(required=True)
 
-class FemaleBottom(ndb.Model):
+class Bottom(ndb.Model):
     bottom = ndb.StringProperty(required=True)
     min_temp = ndb.StringProperty(required=True)
     max_temp = ndb.StringProperty(required=True)
     gender = ndb.StringProperty(required=True)
+        body_temp = ndb.StringProperty(required=True)
 
-class FemaleShoes(ndb.Model):
+class Shoes(ndb.Model):
     shoes = ndb.StringProperty(required=True)
     min_temp = ndb.StringProperty(required=True)
     max_temp = ndb.StringProperty(required=True)
     gender = ndb.StringProperty(required=True)
+    body_temp = ndb.StringProperty(required=True)
