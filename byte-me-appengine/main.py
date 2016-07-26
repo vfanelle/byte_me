@@ -70,11 +70,43 @@ class OutputHandler(webapp2.RequestHandler):
                 outside_min_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['low']['fahrenheit']
                 outside_max_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']
                 wind_speed = response_data['forecast']['simpleforecast']['forecastday'][0]['avewind']['mph']
+
+                if user.user_temp=="Generally warmer":
+                    temp_adjustment = -5
+                elif user.user_temp =="Generally colder":
+                    temp_adjustment = 5
+                else:
+                    temp_adjustment = 0
+
+                #query selection of shirts, bottoms, and shoes based on article of clothing and temperauture
+
+                shirt_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shirt",
+                    outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
+                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
+
+                shirt_selection = shirt_query.fetch(limit=1)
+
+                bottoms_query = outfits.Clothing.query().filter(outfits.Clothing.article == "bottom",
+                    outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
+                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
+
+                bottoms_selection = bottoms_query.fetch(limit=1)
+
+                shoes_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shoes",
+                    outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
+                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
+
+                shoes_selection = shoes_query.fetch(limit=1)
+
+                #tells jinja2 to get output.html from the "templates"
+                #directory and render it with the given variables
                 template = jinja_environment.get_template('output.html')
                 html = template.render({'outside_max_temp':outside_max_temp,
                     'outside_min_temp':outside_min_temp,
                     'outside_condition':outside_condition,
-                    'outside_humidity':outside_humidity, 'wind_speed':wind_speed})
+                    'outside_humidity':outside_humidity, 'wind_speed':wind_speed,
+                    'shoes_selection':shoes_selection, 'bottoms_selection':bottoms_selection,
+                    'shirt_selection':shirt_selection})
                 self.response.write(html)
             else:
                 print "INVALID CITY"
@@ -87,43 +119,7 @@ class OutputHandler(webapp2.RequestHandler):
             template = jinja_environment.get_template('input.html')
             self.response.write(template.render())
 
-        if user.user_temp=="Generally warmer":
-            temp_adjustment = -5
-        elif user.user_temp =="Generally colder":
-            temp_adjustment = 5
-        else:
-            temp_adjustment = 0
 
-        #query selection of shirts, bottoms, and shoes based on article of clothing and temperauture
-
-        shirt_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shirt",
-            outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
-            outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
-
-        shirt_selection = shirt_query.fetch(limit=1)
-
-        bottoms_query = outfits.Clothing.query().filter(outfits.Clothing.article == "bottom",
-            outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
-            outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
-
-        bottoms_selection = bottoms_query.fetch(limit=1)
-
-        shoes_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shoes",
-            outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
-            outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
-
-        shoes_selection = shoes_query.fetch(limit=1)
-
-        #tells jinja2 to get output.html from the "templates"
-        #directory and render it with the given variables
-        template = jinja_environment.get_template('output.html')
-        html = template.render({'outside_max_temp':outside_max_temp,
-            'outside_min_temp':outside_min_temp,
-            'outside_condition':outside_condition,
-            'outside_humidity':outside_humidity, 'wind_speed':wind_speed,
-            'shoes_selection':shoes_selection, 'bottoms_selection':bottoms_selection,
-            'shirt_selection':shirt_selection})
-        self.response.write(html)
 
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
