@@ -41,10 +41,6 @@ class OutputHandler(webapp2.RequestHandler):
         user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
 
-        if user_city=="":
-            print "Please enter a valid city"
-            logging.log(32, "invalid city")
-
         #stores user's input into a user object that is stored into a database
         user = User(user_city=user_city, user_state=user_state, user_gender=user_gender,
             user_temp=user_temp)
@@ -64,22 +60,41 @@ class OutputHandler(webapp2.RequestHandler):
         response = urllib2.urlopen(req)
         response_text = response.read()
         response_data = json.loads(response_text)
-        day = response_data['forecast']['simpleforecast']['forecastday'][0]['period']
-        outside_condition = response_data['forecast']['simpleforecast']['forecastday'][0]['conditions']
-        outside_humidity = response_data['forecast']['simpleforecast']['forecastday'][0]['avehumidity']
-        outside_min_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['low']['fahrenheit']
-        outside_max_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']
-        wind_speed = response_data['forecast']['simpleforecast']['forecastday'][0]['avewind']['mph']
 
+        if user_city!="":
+            #this is to make sure that a valid city is entered
+            if 'error' not in response_data['response']:
+                day = response_data['forecast']['simpleforecast']['forecastday'][0]['period']
+                outside_condition = response_data['forecast']['simpleforecast']['forecastday'][0]['conditions']
+                outside_humidity = response_data['forecast']['simpleforecast']['forecastday'][0]['avehumidity']
+                outside_min_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['low']['fahrenheit']
+                outside_max_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']
+                wind_speed = response_data['forecast']['simpleforecast']['forecastday'][0]['avewind']['mph']
+                template = jinja_environment.get_template('output.html')
+                html = template.render({'outside_max_temp':outside_max_temp,
+                    'outside_min_temp':outside_min_temp,
+                    'outside_condition':outside_condition,
+                    'outside_humidity':outside_humidity, 'wind_speed':wind_speed})
+                self.response.write(html)
+            else:
+                print "INVALID CITY"
+                self.response.write("<div class='boxed'><h2>Please enter a valid city</h2></div>")
+                template = jinja_environment.get_template('input.html')
+                self.response.write(template.render())
+        else:
+            print "INVALID CITY"
+            self.response.write("<div class='boxed'><h2>Please enter a valid city</h2></div>")
+            template = jinja_environment.get_template('input.html')
+            self.response.write(template.render())
 
         #tells jinja2 to get output.html from the "templates"
         #directory and render it with the given variables
-        template = jinja_environment.get_template('output.html')
-        html = template.render({'outside_max_temp':outside_max_temp,
-            'outside_min_temp':outside_min_temp,
-            'outside_condition':outside_condition,
-            'outside_humidity':outside_humidity, 'wind_speed':wind_speed})
-        self.response.write(html)
+        # template = jinja_environment.get_template('output.html')
+        # html = template.render({'outside_max_temp':outside_max_temp,
+        #     'outside_min_temp':outside_min_temp,
+        #     'outside_condition':outside_condition,
+        #     'outside_humidity':outside_humidity, 'wind_speed':wind_speed})
+        # self.response.write(html)
 
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
