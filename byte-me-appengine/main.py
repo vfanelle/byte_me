@@ -6,6 +6,7 @@ import os
 import urllib
 import urllib2
 import webapp2
+import outfits
 
 #defines a user object
 class User(ndb.Model):
@@ -85,5 +86,7 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/info', InputHandler),
     ('/outfit', OutputHandler),
-    ('/about', AboutHandler)
+    ('/about', AboutHandler),
+    ('/admin', outfits.AdminHandler)
+
 ], debug=True)
