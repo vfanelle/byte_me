@@ -1,21 +1,34 @@
 body{
   text-align: center;
-  background-image: url(http://www.winwallpapers.net/w1/2012/02/vienna-challange.jpg);
+  background-image: url(http://feelgrafix.com/data_images/out/28/984205-boston.jpg);
   margin-bottom: 10px;
   font-family: "Bodoni MT", Didot, "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
   color: white;
 }
+/* this code below creates the bar on the horizontal navigation menu*/
+#nav{ background-color: #222; width: 100%; top: 0; }
+#nav-wrapper{ width: 960px; margin: 0 auto; padding-top: 10px;}
+#nav ul{ list-style-type: none; padding: 0; margin: 0; }
+#nav ul li{ display: inline-block; }
+#nav ul li:hover{ background-color: #333; }
+#nav ul li a,visited{ color: #CCC; display: block; padding: 15px; text-decoration: none; }
+
 
 .boxed {
-  /*this code below makes the div translucent; Alexa this applies to all of the
+  /*this code below makes the div translucent; Alexa, this applies to all of the
   html pages*/
   background: rgba(0, 0, 0, 0.5);
   border-radius:25px;
   font-size: 20px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
+  padding-bottom: 10px
 
 }
+#lets_go{
+  margin-bottom: 10px
+}
+
 .welcome {
       font-size: 50px;
 }
@@ -33,13 +46,9 @@ body{
 
 
 /* output page css starts here*/
-table {
-
+.about {
+  font-size: 15px
 }
-
-#reasoning{ /*Output page, Why these clothes*/
-}
-
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
   background-color: rgba(0, 0, 0, 0.5);
@@ -71,10 +80,10 @@ table {
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   position: fixed;
-  z-index: 100;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  z-index: 95;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 a{
  color: white

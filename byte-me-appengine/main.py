@@ -77,8 +77,14 @@ class OutputHandler(webapp2.RequestHandler):
             'outside_humidity':outside_humidity, 'wind_speed':wind_speed})
         self.response.write(html)
 
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('about.html')
+        self.response.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/info', InputHandler),
-    ('/outfit', OutputHandler)
+    ('/outfit', OutputHandler),
+    ('/about', AboutHandler)
 ], debug=True)
