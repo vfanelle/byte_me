@@ -1,9 +1,9 @@
 body{
   text-align: center;
   background-image: url(http://feelgrafix.com/data_images/out/28/984205-boston.jpg);
-  margin-bottom: 10px;
   font-family: "Bodoni MT", Didot, "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
   color: white;
+  height: 100%;
 }
 /* this code below creates the bar on the horizontal navigation menu*/
 #nav{ background-color: #222; width: 100%; top: 0; }

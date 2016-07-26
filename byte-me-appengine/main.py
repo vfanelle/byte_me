@@ -41,6 +41,10 @@ class OutputHandler(webapp2.RequestHandler):
         user_gender = self.request.get('gender')
         user_temp = self.request.get('average_feel')
 
+        if user_city=="":
+            print "Please enter a valid city"
+            logging.log(32, "invalid city")
+
         #stores user's input into a user object that is stored into a database
         user = User(user_city=user_city, user_state=user_state, user_gender=user_gender,
             user_temp=user_temp)
