@@ -6,6 +6,7 @@ import os
 import urllib
 import urllib2
 import webapp2
+import outfits.py
 
 #defines a user object
 class User(ndb.Model):
