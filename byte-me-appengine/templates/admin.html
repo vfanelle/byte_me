@@ -1,28 +1,56 @@
 <!DOCTYPE html>
   <header>
     <title>Administrator Page</title>
+    <link rel="stylesheet" href="induviae_style.css"
   </header>
 
   <body>
+    <div id="nav">
+        <div id="nav-wrapper">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/info">Try Another City</a></li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div class="boxed">
+      <h2>Welcome to the admin page</h2>
+      <p>Please enter the information in the proper boxes</p>
      <form>
+<<<<<<< HEAD
        What kind of clothing are you entering?
        <input type="radio" name="kind" value="shirt"></input>
        <input type="radio" name="kind" value="bottom"></input>
        <input type="radio" name="kind" value="shoes"></input>
+=======
+       What kind of clothing are you entering?<br>
+       <input type="radio" name="top" value="Shirt">Shirt</input><br>
+       <input type="radio" name="bottom" value="Bottoms">Bottoms</input><br>
+       <input type="radio" name="shoes" value="Shoes">Shoes</input><br>
+>>>>>>> 56603092c1420a5d0b5a1c1dd3c143ea70a8cfc1
 
        <br>
 
        URL:
-       <input type="text" name="URL"></input>
+       <input type="text" name="URL"></input><br><br>
 
        Name of clothing:
-       <input type="text" name="name"></input>
+       <input type="text" name="name"></input><br><br>
 
+<<<<<<< HEAD
        Average comfortable temperature:
        <input type="text" name="temp"></input>
 
        <!-- Minimum comfortable temperature:
        <input type="text" name="min_temp"></input> -->
+=======
+       Maximum comfortable temperature:
+       <input type="text" name="max_temp"></input><br><br>
+
+       Minimum comfortable temperature:
+       <input type="text" name="min_temp"></input><br><br>
+>>>>>>> 56603092c1420a5d0b5a1c1dd3c143ea70a8cfc1
 
        Gender:
        <input type="radio" name="gender" value="male">Male<br>
@@ -31,4 +59,11 @@
 
        <input class="button" type="submit" name="submit"></input>
      </form>
+   </div>
+   <div id="navigation">
+     <p>
+       <a href="/about">&nbsp;About Us&nbsp;</a>|
+       <a>&nbsp;Contact&nbsp;</a>
+     </p>
+   </div>
   </body>
