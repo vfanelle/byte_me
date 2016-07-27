@@ -33,10 +33,15 @@ class AdminHandler(webapp2.RequestHandler):
         temp = self.request.get('temp')
         gender = self.request.get('gender')
         url = self.request.get('URL')
-
-        clothing = Clothing(article=article, name=name, temp=int(temp),
-        gender=gender, url=url)
-        key = clothing.put()
-        my_ID = Clothing.get_by_id(key.id()).name
-        template = jinja_environment.get_template('admin.html')
-        self.response.write(template.render())
+        if article != "" and name  != "" and gender != "" and url != "" and temp >-40:
+          clothing = Clothing(article=article, name=name, temp=int(temp),
+          gender=gender, url=url)
+          key = clothing.put()
+          my_ID = Clothing.get_by_id(key.id()).name
+          template = jinja_environment.get_template('admin.html')
+          self.response.write(template.render())
+        else:
+            print "User did not fill all entries on admin page."
+            self.response.write("<div class= 'boxed'><h2><Please enter a valid city</h2></div>")
+            template = jinja_environment.get_template('admin.html')
+            self.response.write(template.render())
