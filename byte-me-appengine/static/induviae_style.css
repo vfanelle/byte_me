@@ -78,7 +78,7 @@ li a:hover {
   right: 0;
 }
 .clothing{
-  width:50px
+  width:150px
 }
 
 /* output page css starts here*/
@@ -116,12 +116,12 @@ form{ /*Input page so the boxes are next to
 }
 #weather_table{ /*Output page table properties,
   entire weather table*/
-  display: inline;
+  display: left;
   border-collapse: collapse;
 }
 #clothes_table{ /*Output page table properties,
   entire outfit table*/
-  display: inline;
+  display: left;
   border-collapse: collapse;
 }
 th, td { /*Output page table properties, table cells*/
