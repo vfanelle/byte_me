@@ -40,7 +40,7 @@ li a:hover {
 .boxed {
   /*this code below makes the div translucent; Alexa, this applies to all of the
   html pages Adolfo*/
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   border-radius:25px;
   font-size: 20px;
   -moz-border-radius: 20px;
@@ -60,7 +60,7 @@ li a:hover {
   margin-bottom: 250px;
 }
 .bottom{
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 5px;
   margin: 10px;
   border-radius:25px;
@@ -75,8 +75,6 @@ li a:hover {
   right: 0;
 }
 /* output page css starts here*/
-#reasoning{ /*Output page, Why these clothes*/
-}
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
   color: white;
@@ -89,7 +87,7 @@ li a:hover {
 }
 #div_reasoning{/*Output page, this allows there
     to be a color between the text and the image*/
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 10px;
     margin: 10px;
     border-radius:25px;
