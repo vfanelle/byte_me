@@ -49,6 +49,9 @@ li a:hover {
 .welcome {
       font-size: 50px;
 }
+.blank_space{
+  display: inline;
+}
 .mainbutton {
   background-color: #000000;
   color:#FFFFFF;
@@ -120,6 +123,11 @@ a{
   font-size: 20px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
+}
+.button:hover{
+  background-color: silver;
+  color: #FFFFFF;
+  font-size: 22px
 }
 form{ /*Input page so the boxes are next to
   the respective prompts*/
