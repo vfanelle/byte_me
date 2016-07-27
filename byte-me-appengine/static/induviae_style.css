@@ -121,12 +121,12 @@ form{ /*Input page so the boxes are next to
 }
 #weather_table{ /*Output page table properties,
   entire weather table*/
-  display: left;
+  display: inline;
   border-collapse: collapse;
 }
 #clothes_table{ /*Output page table properties,
   entire outfit table*/
-  display: left;
+  display: inline;;
   border-collapse: collapse;
 }
 th, td { /*Output page table properties, table cells*/
