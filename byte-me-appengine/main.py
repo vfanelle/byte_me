@@ -7,6 +7,7 @@ import urllib
 import urllib2
 import webapp2
 import outfits
+import temp_datastore
 
 #defines a user object
 class User(ndb.Model):
@@ -82,21 +83,21 @@ class OutputHandler(webapp2.RequestHandler):
 
                 shirt_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shirt",
                     outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
-                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
+                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
 
                 shirt_selection = shirt_query.fetch(limit=1)
                 shirt_selection = shirt_selection[0].url
 
                 bottoms_query = outfits.Clothing.query().filter(outfits.Clothing.article == "bottom",
                     outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
-                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
+                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
 
                 bottoms_selection = bottoms_query.fetch(limit=1)
                 bottoms_selection = bottoms_selection[0].url
 
                 shoes_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shoes",
                     outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
-                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
+                    outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
 
                 shoes_selection = shoes_query.fetch(limit=1)
                 shoes_selection = shoes_selection[0].url
@@ -139,7 +140,8 @@ app = webapp2.WSGIApplication([
     ('/outfit', OutputHandler),
     ('/about', AboutHandler),
     ('/administration', AdminHandler),
-    ('/admin', outfits.AdminHandler)
+    ('/admin', outfits.AdminHandler),
+    ('/temp_datastore', temp_datastore.TempDatastoreHandler)
 
 
 ], debug=True)
