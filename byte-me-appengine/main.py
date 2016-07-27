@@ -119,7 +119,11 @@ class OutputHandler(webapp2.RequestHandler):
             template = jinja_environment.get_template('input.html')
             self.response.write(template.render())
 
-
+#this takes you to the admin page
+class AdminHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('admin.html')
+        self.response.write(template.render())
 
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
@@ -131,6 +135,8 @@ app = webapp2.WSGIApplication([
     ('/info', InputHandler),
     ('/outfit', OutputHandler),
     ('/about', AboutHandler),
-    ('/admin', outfits.AdminHandler)
+    ('/administration', AdminHandler)
+    ('/admin', outfitsAdminHandler)
+
 
 ], debug=True)
