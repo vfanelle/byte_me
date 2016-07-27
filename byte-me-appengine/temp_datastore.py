@@ -81,7 +81,9 @@ class TempDatastoreHandler(webapp2.RequestHandler):
         outfits.Clothing(article="shirt", name="light sweater", temp=55,
         gender="female", url="http://g.nordstromimage.com/ImageGallery/store/product/Zoom/18/_11600118.jpg"),
         outfits.Clothing(article="shirt", name="jacket", temp=45,
-        gender="female", url="http://3.bp.blogspot.com/-gDdoKSV3FGs/UFYhLydU2OI/AAAAAAAABhs/PjFI-oAUO08/s1600/7122147_Sandy_coat_plum_jacket_A.png.png")
+        gender="female", url="http://3.bp.blogspot.com/-gDdoKSV3FGs/UFYhLydU2OI/AAAAAAAABhs/PjFI-oAUO08/s1600/7122147_Sandy_coat_plum_jacket_A.png.png"),
+        outfits.Clothing(article="shirt", name="V-neck T-shirt", temp=85,
+        gender="female", url="http://images.footlocker.com/pi/84683100/large/nike-shortsleeve-legend-v-neck-t-shirt-2.0-womens"),
 
         outfits.Clothing(article="bottom", name="Skinny Jeans", temp=40,
         gender="female", url="http://www.jeans.ch/out/pictures/master/product/1/sol_nudie-jeans-skinny-lin-jeans-women-light-blue-skinny-lin-111818_f_1.png"),
