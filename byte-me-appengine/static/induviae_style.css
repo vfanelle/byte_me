@@ -4,16 +4,28 @@ body{
   font-family: "Bodoni MT", Didot, "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
   color: white;
   height: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
 }
+
 ul {
   list-style-type: none;
-  margin: 0;
+  margin: 0px ;
   padding: 0;
   overflow: hidden;
   background-color: black;
 }
 li {
     float: left;
+}
+#varinduviae {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 li a {
     display: block;
@@ -48,12 +60,11 @@ li a:hover {
   margin-bottom: 250px;
 }
 .aboutus{
-  position: fixed;
+  position: static fixed;
   bottom: 0;
   left: 0;
   right: 0;
 }
-
 /* output page css starts here*/
 #reasoning{ /*Output page, Why these clothes*/
 }
@@ -67,8 +78,7 @@ li a:hover {
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
 }
-#div_reasoning{
-  /*Output page, this allows there
+#div_reasoning{/*Output page, this allows there
     to be a color between the text and the image*/
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
