@@ -44,6 +44,16 @@ class TempDatastoreHandler(webapp2.RequestHandler):
 
         outfits.Clothing(article="shirt", name="V-neck T-shirt", temp=75,
         gender="female", url="http://images.footlocker.com/pi/84683100/large/nike-shortsleeve-legend-v-neck-t-shirt-2.0-womens"),
+        outfits.Clothing(article="shirt", name="Tank-top", temp=95,
+        gender="female", url="https://s3-us-west-2.amazonaws.com/s3.homage.com/product_images/namecavs-tank-top-size2000x2000-shotflat-colornavy.png,"),
+        outfits.Clothing(article="shirt", name="half-long sleeve", temp=65,
+        gender="female", url="http://www.oldnavy.com/products/res/thumbimg/long-and-lean-baseball-tee-for-girls-black.jpg"),
+        outfits.Clothing(article="shirt", name="cami", temp=105,
+        gender="female", url="http://dbdapps.co.uk/packinglists/sites/default/files/cami-top.png"),
+        outfits.Clothing(article="shirt", name="light sweater", temp=55,
+        gender="female", url="http://g.nordstromimage.com/ImageGallery/store/product/Zoom/18/_11600118.jpg"),
+        outfits.Clothing(article="shirt", name="jacket", temp=45,
+        gender="female", url="http://3.bp.blogspot.com/-gDdoKSV3FGs/UFYhLydU2OI/AAAAAAAABhs/PjFI-oAUO08/s1600/7122147_Sandy_coat_plum_jacket_A.png.png")
 
 
         outfits.Clothing(article="bottom", name="Skinny Jeans", temp=75,
