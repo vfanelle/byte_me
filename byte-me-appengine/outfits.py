@@ -18,9 +18,8 @@ class Clothing(ndb.Model):
     name = ndb.StringProperty(required=True)
     temp = ndb.IntegerProperty(required=True)
     gender = ndb.StringProperty(required=True)
+    url = ndb.StringProperty(required=True)
 
-    #url = ndb.StringProperty(required=True)
-#add a couple of degrees to actual temp when deciding clothing for cold people
 
 class AdminHandler(webapp2.RequestHandler):
     def get(self):
@@ -28,14 +27,14 @@ class AdminHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('admin.html')
         self.response.write(template.render())
 
+    def post(self):
         article = self.request.get('kind')
         name = self.request.get('name')
         temp = self.request.get('temp')
-        #max_temp = self.request.get('max_temp')
         gender = self.request.get('gender')
-        #url = self.request.get('URL')
+        url = self.request.get('URL')
 
-        clothing = Clothing(article=article, name=name, temp=int(temp),
+        clothing = Clothing(article=article, name=name, temp=temp,
         gender=gender)
         key = clothing.put()
         my_ID = Clothing.get_by_id(key.id()).name

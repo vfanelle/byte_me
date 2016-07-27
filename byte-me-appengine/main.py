@@ -84,19 +84,19 @@ class OutputHandler(webapp2.RequestHandler):
                     outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
                     outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
 
-                shirt_selection = shirt_query.fetch(limit=1)
+                shirt_selection = shirt_query.fetch(limit=1).url
 
                 bottoms_query = outfits.Clothing.query().filter(outfits.Clothing.article == "bottom",
                     outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
                     outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
 
-                bottoms_selection = bottoms_query.fetch(limit=1)
+                bottoms_selection = bottoms_query.fetch(limit=1).url
 
                 shoes_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shoes",
                     outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
                     outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment)
 
-                shoes_selection = shoes_query.fetch(limit=1)
+                shoes_selection = shoes_query.fetch(limit=1).url
 
                 #tells jinja2 to get output.html from the "templates"
                 #directory and render it with the given variables
