@@ -64,7 +64,8 @@ class OutputHandler(webapp2.RequestHandler):
 
         if user_city!="":
             #this is to make sure that a valid city is entered
-            if 'error' not in response_data['response']:
+            if 'error' not in response_data['response'] and 'forecast' in response_data:
+                print response_data
                 day = response_data['forecast']['simpleforecast']['forecastday'][0]['period']
                 outside_condition = response_data['forecast']['simpleforecast']['forecastday'][0]['conditions']
                 outside_humidity = response_data['forecast']['simpleforecast']['forecastday'][0]['avehumidity']
