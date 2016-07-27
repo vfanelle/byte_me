@@ -135,8 +135,8 @@ app = webapp2.WSGIApplication([
     ('/info', InputHandler),
     ('/outfit', OutputHandler),
     ('/about', AboutHandler),
-    ('/administration', AdminHandler)
-    ('/admin', outfitsAdminHandler)
+    ('/administration', AdminHandler),
+    ('/admin', outfits.AdminHandler)
 
 
 ], debug=True)
