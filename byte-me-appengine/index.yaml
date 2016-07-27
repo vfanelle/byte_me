@@ -13,4 +13,10 @@ indexes:
 - kind: Clothing
   properties:
   - name: article
+  - name: gender
+  - name: temp
+
+- kind: Clothing
+  properties:
+  - name: article
   - name: temp

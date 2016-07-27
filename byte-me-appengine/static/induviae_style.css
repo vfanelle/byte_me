@@ -77,6 +77,11 @@ li a:hover {
   left: 0;
   right: 0;
 }
+
+.clothing{
+  width:50px
+}
+
 /* output page css starts here*/
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
