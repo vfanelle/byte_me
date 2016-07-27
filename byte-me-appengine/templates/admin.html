@@ -18,12 +18,12 @@
     <div class="boxed">
       <h2>Welcome to the admin page</h2>
       <p>Please enter the information in the proper boxes</p>
-     <form>
+     <form action="/admin" method="post">
 
-       What kind of clothing are you entering?<br>
-       <input type="radio" name="kind" value="shirt"> Shirt</input><br>
-       <input type="radio" name="kind" value="bottom"> Bottoms</input><br>
-       <input type="radio" name="kind" value="shoes"> Shoes</input><br>
+       What kind of clothing are you entering?
+       Shirt <input type="radio" name="kind" value="shirt"></input>
+       Bottom <input type="radio" name="kind" value="bottom"></input>
+       Shoes <input type="radio" name="kind" value="shoes"></input>
 
        <br>
 
@@ -34,7 +34,7 @@
        <input type="text" name="name"></input><br><br>
 
        Average comfortable temperature:
-       <input type="number" name="temp"></input><br><br>
+       <input type="number" name="temp" min=-40 max=150></input>
 
        Gender:<br>
        <input type="radio" name="gender" value="male"> Male<br>
