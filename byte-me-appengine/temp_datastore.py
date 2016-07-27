@@ -116,12 +116,7 @@ class TempDatastoreHandler(webapp2.RequestHandler):
         outfits.Clothing(article="shoes", name="Sandals", temp=100,
         gender="female", url="http://cdn.shopify.com/s/files/1/0219/5414/products/SIDE_BAXLEY2_PLATINUM_GOLD_METALLIC_NAPPA_large.png?v=1451439229"),
         outfits.Clothing(article="shoes", name="Sandals", temp=110,
-        gender="female", url="http://cdn.shopify.com/s/files/1/0219/5414/products/SIDE_BAXLEY2_PLATINUM_GOLD_METALLIC_NAPPA_large.png?v=1451439229"),
-
-
-
-
-
+        gender="female", url="http://cdn.shopify.com/s/files/1/0219/5414/products/SIDE_BAXLEY2_PLATINUM_GOLD_METALLIC_NAPPA_large.png?v=1451439229")
 
         ]
         for clothing in clothing_list:
