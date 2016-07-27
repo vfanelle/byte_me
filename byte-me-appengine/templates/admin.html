@@ -20,12 +20,12 @@
       <p>Please enter the information in the proper boxes</p>
      <form action="/admin" method="post">
 
-       What kind of clothing are you entering?
-       Shirt <input type="radio" name="kind" value="shirt"></input>
-       Bottom <input type="radio" name="kind" value="bottom"></input>
+       What kind of clothing are you entering?<br>
+       Shirt <input type="radio" name="kind" value="shirt"></input><br>
+       Bottom <input type="radio" name="kind" value="bottom"></input><br>
        Shoes <input type="radio" name="kind" value="shoes"></input>
 
-       <br>
+       <br><br>
 
        URL:
        <input type="text" name="URL"></input><br><br>
@@ -34,7 +34,7 @@
        <input type="text" name="name"></input><br><br>
 
        Average comfortable temperature:
-       <input type="number" name="temp" min=-40 max=150></input>
+       <input type="number" name="temp" min=-40 max=150></input><br><br>
 
        Gender:<br>
        <input type="radio" name="gender" value="male"> Male<br>
@@ -44,11 +44,9 @@
        <input class="button" type="submit" name="submit"></input>
      </form>
    </div>
-   <div id="navigation">
-     <p>
-       <a href="/about">&nbsp;About Us&nbsp;</a>|
-       &nbsp;<a href="/administration">Admin</a>&nbsp;|
-       <a>&nbsp;Contact&nbsp;</a>
+     <p class="aboutus">
+       <a href="/about" class="bottom">About Us</a>&nbsp;|
+       &nbsp;<a href="/administration" class="bottom">Admin</a>&nbsp;|
+       &nbsp;<a class="bottom">Contact</a>
      </p>
-   </div>
   </body>
