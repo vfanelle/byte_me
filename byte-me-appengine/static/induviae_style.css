@@ -20,6 +20,9 @@ ul {
 li {
     float: left;
 }
+.problem{
+  color: red
+}
 #varinduviae {
   float: left;
   color: white;
