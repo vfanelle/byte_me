@@ -28,12 +28,6 @@ class TempDatastoreHandler(webapp2.RequestHandler):
         gender="female", url="http://cdn.shopclues.net/images/detailed/14022/jeans_1426934506.jpg"),
         outfits.Clothing(article="shoes", name="Vans", temp=75,
         gender="female", url="https://asset1.surfcdn.com/vans-shoes-vans-authentic-lo-pro-womens-shoes-navy-true-white.jpg?w=1200&h=1200&r=4&q=80&o=cit4@K7Ju6AzmQMUdeZMd$26Tq4j&V=CVZ0"),
-        outfits.Clothing(article="shirt", name="V-neck T-shirt", temp=75,
-        gender="nonbinary", url="http://www.customdropshipping.com/data/product/img/20110917/men-s-light-grey-unisex-v-neck-t-shirt-69_t_300_300.jpg"),
-        outfits.Clothing(article="bottom", name="Jeans", temp=75,
-        gender="nonbinary", url="http://www.oldnavy.com/products/res/mainimg/boys-straight-leg-jeans-dark-stonewashed.jpg"),
-        outfits.Clothing(article="shoes", name="Sneakers", temp=75,
-        gender="nonbinary", url="http://bpc.h-cdn.co/assets/16/08/1456154568-womens-white-sneakers.jpg")
         ]
         for clothing in clothing_list:
           num_matching = outfits.Clothing.query().filter(outfits.Clothing.url == clothing.url).count()
