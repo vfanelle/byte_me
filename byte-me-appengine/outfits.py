@@ -34,7 +34,9 @@ class AdminHandler(webapp2.RequestHandler):
         gender = self.request.get('gender')
         url = self.request.get('URL')
 
-        clothing = Clothing(article=article, name=name, temp=temp,
-        gender=gender)
+        clothing = Clothing(article=article, name=name, temp=int(temp),
+        gender=gender, url=url)
         key = clothing.put()
         my_ID = Clothing.get_by_id(key.id()).name
+        template = jinja_environment.get_template('admin.html')
+        self.response.write(template.render())
