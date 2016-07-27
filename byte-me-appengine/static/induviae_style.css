@@ -115,24 +115,49 @@ a{
   color: #FFFFFF;
   font-size: 22px
 }
+
 form{ /*Input page so the boxes are next to
   the respective prompts*/
   display: inline;
 }
 #weather_table{ /*Output page table properties,
   entire weather table*/
-  display: left;
-  border-collapse: collapse;
+    font-size: 30px;
+}
+.weather-rows {
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+    background: rgba(0, 0, 0, 0.8);
+}
+#weather_title {
+  font-size: 40px;
 }
 #clothes_table{ /*Output page table properties,
   entire outfit table*/
   display: left;
-  border-collapse: collapse;
 }
 th, td { /*Output page table properties, table cells*/
   border: 1px solid black;
   padding-bottom: 5px;
+  vertical-align: top;
 }
+.tds {
+  border-color: transparent;
+}
+
+.clothing-rows {
+  border-collapse:separate;
+  border:solid black 1px;
+  border-radius:6px;
+  -moz-border-radius:6px;
+  background: rgba(0, 0, 0, 0.8);
+}
+.clothing-rows:hover, .weather-rows:hover {
+      background-color: rgba(169, 169, 169, 0.9);
+}
+
 /*#rainy{ /*Output page background
   background-image: url("https://images4.alphacoders.com/831/83196.jpg");
 }
