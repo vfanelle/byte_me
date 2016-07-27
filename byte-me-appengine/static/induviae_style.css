@@ -49,6 +49,9 @@ li a:hover {
 .welcome {
       font-size: 50px;
 }
+.blank_space{
+  display: inline;
+}
 .mainbutton {
   background-color: #000000;
   color:#FFFFFF;
@@ -74,11 +77,12 @@ li a:hover {
   left: 0;
   right: 0;
 }
-
 .clothing{
   width:50px
 }
-
+#blank_space{
+  height: 0px
+}
 /* output page css starts here*/
 #div_output{ /*Output page, this allows there
   to be a color between the text and the image*/
@@ -90,30 +94,7 @@ li a:hover {
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
 }
-#div_reasoning{/*Output page, this allows there
-    to be a color between the text and the image*/
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    margin: 10px;
-    border-radius:25px;
-    font-size: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-}
-/*#navigation{
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5px;
-  margin: 10px;
-  border-radius:25px;
-  font-size: 15px;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  position: fixed;
-  z-index: 100;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}*/
+
 a{
  color: white
 }
@@ -125,6 +106,11 @@ a{
   font-size: 20px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
+}
+.button:hover{
+  background-color: silver;
+  color: #FFFFFF;
+  font-size: 22px
 }
 form{ /*Input page so the boxes are next to
   the respective prompts*/
