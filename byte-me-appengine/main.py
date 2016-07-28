@@ -129,12 +129,12 @@ class OutputHandler(webapp2.RequestHandler):
                             self.response.write(html)
             else:
                 print "INVALID CITY"
-                self.response.write("<div class='boxed'><h2>Please enter a valid city</h2></div>")
+                self.response.write("<div class='boxed'><h2 class='problem'>Please enter a valid city</h2></div>")
                 template = jinja_environment.get_template('input.html')
                 self.response.write(template.render())
         else:
             print "INVALID CITY"
-            self.response.write("<div class='boxed'><h2>Please enter a valid city</h2></div>")
+            self.response.write("<div class='boxed'><h2 class='problem'>Please enter a valid city</h2></div>")
             template = jinja_environment.get_template('input.html')
             self.response.write(template.render())
 
