@@ -73,6 +73,7 @@ class OutputHandler(webapp2.RequestHandler):
                 outside_max_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']
                 wind_speed = response_data['forecast']['simpleforecast']['forecastday'][0]['avewind']['mph']
 
+
                 if user.user_temp=="Generally warmer":
                     temp_adjustment = -5
                 elif user.user_temp =="Generally colder":
@@ -98,13 +99,12 @@ class OutputHandler(webapp2.RequestHandler):
                         outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
 
                     bottoms_selection = bottoms_query.fetch(limit=1)
-                    if not bottoms_selection[0]:
+                    if not bottoms_selection:
                          template = jinja_environment.get_template('input.html')
                          self.response.write(template.render())
                          self.response.write("<div class='boxed'><h2 class='problem'>You need more bottoms.</h2></div>")
                     else:
                         bottoms_selection = bottoms_selection[0].url
-
                         shoes_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shoes",
                             outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
                             outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
@@ -129,9 +129,15 @@ class OutputHandler(webapp2.RequestHandler):
                             self.response.write(html)
             else:
                 print "INVALID CITY"
+                print response_data
                 self.response.write("<div class='boxed'><h2>Please enter a valid city</h2></div>")
+                possible_cities = []
+                for place in response_data['response']['results']:
+                    if place['country'] == 'US':
+                        possible_cities.append(place)
                 template = jinja_environment.get_template('input.html')
-                self.response.write(template.render())
+                self.response.write(template.render(possible_cities=possible_cities))
+                user_state = self.request.get('state_code')
         else:
             print "INVALID CITY"
             self.response.write("<div class='boxed'><h2>Please enter a valid city</h2></div>")
