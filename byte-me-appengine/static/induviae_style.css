@@ -39,7 +39,7 @@ li a {
     text-decoration: none;
 }
 li a:hover {
-    background-color: gray;
+    background-color: rgba(150, 150, 150, 0.4);
 }
 .boxed {
   /*this code below makes the div translucent; Alexa, this applies to all of the
