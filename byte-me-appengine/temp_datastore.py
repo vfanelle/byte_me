@@ -75,7 +75,7 @@ class TempDatastoreHandler(webapp2.RequestHandler):
         outfits.Clothing(article="shirt", name="Tank-top", temp=95,
         gender="female", url="http://www.nakfashionbd.com/img_upload/product_2015_06_27_01_45_33_Nak_Ladies_17.png"),
         outfits.Clothing(article="shirt", name="half-long sleeve", temp=65,
-        gender="female", url="http://www.oldnavy.com/products/res/thumbimg/long-and-lean-baseball-tee-for-girls-black.jpg"),
+        gender="female", url="http://cdn.shopify.com/s/files/1/0097/5692/products/American_Apparel_AA_BB453_Baseball_Raglan_Truffle_large.png?v=1407187216"),
         outfits.Clothing(article="shirt", name="cami", temp=105,
         gender="female", url="http://dbdapps.co.uk/packinglists/sites/default/files/cami-top.png"),
         outfits.Clothing(article="shirt", name="light sweater", temp=55,
