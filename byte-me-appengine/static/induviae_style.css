@@ -8,6 +8,13 @@ body{
   margin-left: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
+  min-height: 100%;
+  -webkit-background-size: 100%; 
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 ul {
