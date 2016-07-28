@@ -137,7 +137,6 @@ class OutputHandler(webapp2.RequestHandler):
                         possible_cities.append(place)
                 template = jinja_environment.get_template('input.html')
                 self.response.write(template.render(possible_cities=possible_cities))
-                user_state = self.request.get('state_code')
         else:
             print "INVALID CITY"
             self.response.write("<div class='boxed'><h2 class='problem'>Please enter a valid city</h2></div>")
