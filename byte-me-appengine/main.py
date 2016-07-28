@@ -132,11 +132,15 @@ class OutputHandler(webapp2.RequestHandler):
                 print response_data
                 self.response.write("<div class='boxed'><h2 class='problem'>Please enter a valid city</h2></div>")
                 possible_cities = []
-                for place in response_data['response']['results']:
-                    if place['country'] == 'US':
-                        possible_cities.append(place)
-                template = jinja_environment.get_template('input.html')
-                self.response.write(template.render(possible_cities=possible_cities))
+                if not response_data['response']['error']:
+                    for place in response_data['response']['results']:
+                        if place['country'] == 'US':
+                            possible_cities.append(place)
+                    template = jinja_environment.get_template('input.html')
+                    self.response.write(template.render(possible_cities=possible_cities))
+                else:
+                    template = jinja_environment.get_template('input.html')
+                    self.response.write(template.render())
         else:
             print "INVALID CITY"
             self.response.write("<div class='boxed'><h2 class='problem'>Please enter a valid city</h2></div>")
