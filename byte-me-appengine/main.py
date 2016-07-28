@@ -98,7 +98,7 @@ class OutputHandler(webapp2.RequestHandler):
                         outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
 
                     bottoms_selection = bottoms_query.fetch(limit=1)
-                    if not bottoms_selection[0]:
+                    if not bottoms_selection:
                          template = jinja_environment.get_template('input.html')
                          self.response.write(template.render())
                          self.response.write("<div class='boxed'><h2 class='problem'>You need more bottoms.</h2></div>")
