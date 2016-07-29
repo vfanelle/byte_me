@@ -73,7 +73,7 @@ class OutputHandler(webapp2.RequestHandler):
                 outside_max_temp = response_data['forecast']['simpleforecast']['forecastday'][0]['high']['fahrenheit']
                 wind_speed = response_data['forecast']['simpleforecast']['forecastday'][0]['avewind']['mph']
 
-
+                #allows program to adjust clohing recommendations based on a person's perceived body temperature
                 if user.user_temp=="Generally warmer":
                     temp_adjustment = -5
                 elif user.user_temp =="Generally colder":
@@ -88,28 +88,34 @@ class OutputHandler(webapp2.RequestHandler):
                     outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
 
                 shirt_selection = shirt_query.fetch(limit=1)
+
+                #if nothing is in the query for that temperature range and gender, let user know to add shirts to datastore
                 if  not shirt_selection:
                      template = jinja_environment.get_template('input.html')
                      self.response.write(template.render())
                      self.response.write("<div class='boxed'><h2 class='problem'>You need more shirts.</h2></div>")
                 else:
+                    #otherwise, store shirt url in a variable and query the pants selection
                     shirt_selection = shirt_selection[0].url
                     bottoms_query = outfits.Clothing.query().filter(outfits.Clothing.article == "bottom",
                         outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
                         outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
 
+                    #if no pants for that gender and temperature range, tell the user
                     bottoms_selection = bottoms_query.fetch(limit=1)
                     if not bottoms_selection:
                          template = jinja_environment.get_template('input.html')
                          self.response.write(template.render())
                          self.response.write("<div class='boxed'><h2 class='problem'>You need more bottoms.</h2></div>")
                     else:
+                        #otherwise, store pants url in a variable and query shoes
                         bottoms_selection = bottoms_selection[0].url
                         shoes_query = outfits.Clothing.query().filter(outfits.Clothing.article == "shoes",
                             outfits.Clothing.temp >= int(outside_min_temp)+temp_adjustment,
                             outfits.Clothing.temp <= int(outside_max_temp)+temp_adjustment, outfits.Clothing.gender == user.user_gender)
 
                         shoes_selection = shoes_query.fetch(limit=1)
+                        #if no shoes for that temperature range and gender, tell user
                         if not shoes_selection:
                             template = jinja_environment.get_template('input.html')
                             self.response.write(template.render())
@@ -132,6 +138,7 @@ class OutputHandler(webapp2.RequestHandler):
                 print response_data
                 self.response.write("<div class='boxed'><h2 class='problem'>Please enter a valid city</h2></div>")
                 possible_cities = []
+                #if there is not an error with the input, displays city options for user to choose from
                 if 'error' not in response_data['response']:
                     #if not response_data['response']['error']:
                         for place in response_data['response']['results']:
@@ -140,9 +147,11 @@ class OutputHandler(webapp2.RequestHandler):
                         template = jinja_environment.get_template('input.html')
                         self.response.write(template.render(possible_cities=possible_cities))
                 else:
+                        #otherwise if there is an error, just tell the user there was an error and display the input page
                         template = jinja_environment.get_template('input.html')
                         self.response.write(template.render())
         else:
+            #if the user doesn't input anything, redirect them to input page and tell them to enter a valid city
             print "INVALID CITY"
             self.response.write("<div class='boxed'><h2 class='problem'>Please enter a valid city</h2></div>")
             template = jinja_environment.get_template('input.html')
@@ -154,6 +163,7 @@ class AdminHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('admin.html')
         self.response.write(template.render())
 
+#takes user to About Us page
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('about.html')

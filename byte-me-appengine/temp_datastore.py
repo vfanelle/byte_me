@@ -13,6 +13,7 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
 
+#creates common datastore for administrators to pre-load before editing code
 class TempDatastoreHandler(webapp2.RequestHandler):
     def get(self):
         clothing_list= [
@@ -121,6 +122,8 @@ class TempDatastoreHandler(webapp2.RequestHandler):
         gender="female", url="http://cdn.shopify.com/s/files/1/0219/5414/products/SIDE_BAXLEY2_PLATINUM_GOLD_METALLIC_NAPPA_large.png?v=1451439229")
 
         ]
+
+        #prevents duplicates of clothing from being put into the datastore
         for clothing in clothing_list:
           num_matching = outfits.Clothing.query().filter(outfits.Clothing.url == clothing.url).count()
           if not num_matching:
