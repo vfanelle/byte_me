@@ -93,7 +93,7 @@ class OutputHandler(webapp2.RequestHandler):
                 if  not shirt_selection:
                      template = jinja_environment.get_template('input.html')
                      self.response.write(template.render())
-                     self.response.write("<div class='boxed'><h2 class='problem'>You need more shirts.</h2></div>")
+                     self.response.write("<div class='boxed'><h2 class='problem'>You need more weather-appropriate shirts.</h2></div>")
                 else:
                     #otherwise, store shirt url in a variable and query the pants selection
                     shirt_selection = shirt_selection[0].url
@@ -106,7 +106,7 @@ class OutputHandler(webapp2.RequestHandler):
                     if not bottoms_selection:
                          template = jinja_environment.get_template('input.html')
                          self.response.write(template.render())
-                         self.response.write("<div class='boxed'><h2 class='problem'>You need more bottoms.</h2></div>")
+                         self.response.write("<div class='boxed'><h2 class='problem'>You need more weather-appropriate bottoms.</h2></div>")
                     else:
                         #otherwise, store pants url in a variable and query shoes
                         bottoms_selection = bottoms_selection[0].url
@@ -119,7 +119,7 @@ class OutputHandler(webapp2.RequestHandler):
                         if not shoes_selection:
                             template = jinja_environment.get_template('input.html')
                             self.response.write(template.render())
-                            self.response.write("<div class='boxed'><h2 class='problem'>You need more shoes.</h2></div>")
+                            self.response.write("<div class='boxed'><h2 class='problem'>You need more weather-appropriate shoes.</h2></div>")
                         else:
                             shoes_selection = shoes_selection[0].url
 
