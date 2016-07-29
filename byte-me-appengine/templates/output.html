@@ -46,15 +46,71 @@
           <th class="clothing-rows" id="outfit_title">Outfit</th> <!-- row 1, column 1 -->
           </tr>
           <tr>
-          <th class="clothing-rows" class="outfit_subtitles">Top: <img class="clothing" src="{{shirt_selection}}"></th> <!-- row 2, column 1 -->
+          <tr>
+          <th class="clothing-rows" id="clothing-top" class="outfit_subtitles">Top</th> <!-- row 2, column 1 -->
           </tr>
           <tr>
-          <th class="clothing-rows" class="outfit_subtitles">Bottoms: <img class="clothing" src="{{bottoms_selection}}"></th> <!-- row 3, column 1-->
+          <th class="clothing-rows" id="clothing-bottom" class="outfit_subtitles">Bottom</th> <!-- row 3, column 1-->
           </tr>
           <tr>
-          <th class="clothing-rows" class="outfit_subtitles">Shoes: <img class="clothing" src="{{shoes_selection}}"></th> <!-- row 4, column 1 -->
+          <th class="clothing-rows" id="clothing-shoes" class="outfit_subtitles">Shoes</th> <!-- row 4, column 1 -->
           </tr>
         </table>
+      </td>
+      <td class="tds" id="clothes_pop">
+        <img style="display:none" class="clothing" id="top-show" id="pop-up" src="{{shirt_selection}}">
+        <img style="display:none" class="clothing" id="bottom-show" id="pop-up" src="{{bottoms_selection}}">
+        <img style="display:none" class="clothing" id="shoes-show" id="pop-up" src="{{shoes_selection}}">
+        <p style="display:none" id="ch"> Hover over an article to display!</p>
+        <p  id="welc">Good job! now hover the mouse over an article!</p>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
+        <script>
+        $("#pop-up").hide();
+        $("#clothing-top").mouseover("show", fade);
+        $("#clothing-top").mouseout("disappear", ddd);
+        function fade () {
+        $("#top-show").fadeIn();
+        $("#top-show").show();
+        $("#ch").hide();
+        $("#welc").hide();
+        }
+        function ddd () {
+        $("#top-show").hide();
+        $("#top-show").fadeOut();
+        $("#ch").fadeIn();
+        $("#ch").show();
+        $("#welc").hide();
+        }
+        $("#clothing-bottom").mouseover("show", fade2);
+        $("#clothing-bottom").mouseout("disappear", ddd2);
+        function fade2 () {
+        $("#bottom-show").fadeIn();
+        $("#bottom-show").show();
+        $("#ch").hide();
+        $("#welc").hide();
+        }
+        function ddd2 () {
+        $("#bottom-show").hide();
+        $("#ch").fadeIn();
+        $("#ch").show();
+        $("#welc").hide();
+        }
+        $("#clothing-shoes").mouseover("show", fade3);
+        $("#clothing-shoes").mouseout("disappear", ddd3);
+        function fade3 () {
+        $("#shoes-show").fadeIn();
+        $("#shoes-show").show();
+        $("#ch").hide();
+        $("#welc").hide();
+        }
+        function ddd3 () {
+        $("#shoes-show").hide();
+        $("#ch").fadeIn();
+        $("#ch").show();
+        $("#welc").hide();
+        }
+        </script>
       </td>
     </tr>
   </table>

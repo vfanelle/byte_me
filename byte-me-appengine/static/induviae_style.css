@@ -1,8 +1,9 @@
 body{
   text-align: center;
-  background-image: url(http://feelgrafix.com/data_images/out/28/984205-boston.jpg);
+  background-image: url(http://all4desktop.com/data_images/1280%20x%20800/4163390-empire-state-city.jpg);
   font-family: "Bodoni MT", Didot, "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
   color: white;
+  background-size: 1310px 800px;
   height: 100%;
   margin-top: 0px;
   margin-left: 0px;
@@ -74,6 +75,7 @@ li a:hover {
   font-size: 15px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
+
 }
 .aboutus{
   position: static fixed;
@@ -82,7 +84,12 @@ li a:hover {
   right: 0;
 }
 .clothing{
-  width:150px
+    width: 300px;
+    height: 300px;
+    height: auto;
+    float: center;
+    margin: auto;
+    padding-top: 100px;
 }
 #blank_space{
   height: 0px
@@ -131,13 +138,19 @@ form{ /*Input page so the boxes are next to
     border-radius:6px;
     -moz-border-radius:6px;
     background: rgba(0, 0, 0, 0.8);
+    height: 50px;
+    width: 360px;
 }
 #weather_title {
   font-size: 40px;
 }
-#clothes_table{ /*Output page table properties,
+#clothes_pop { /*Output page table properties,
   entire outfit table*/
-  display: left;
+width: 600px;
+height: auto;
+}
+#outfit_title {
+  height: 30px;
 }
 th, td { /*Output page table properties, table cells*/
   border: 1px solid black;
@@ -154,12 +167,23 @@ th, td { /*Output page table properties, table cells*/
   border-radius:6px;
   -moz-border-radius:6px;
   background: rgba(0, 0, 0, 0.8);
+  width: 260px;
+  height: 170px;
+  margin: auto;
+  font-size: 40px;
+  vertical-align: middle;
 }
-
+#ch {
+    font-size: 90px;
+}
+#welc {
+    font-size: 90px;
+}
 .clothing-rows:hover, .weather-rows:hover {
       background-color: rgba(169, 169, 169, 0.9);
       color: black;
 }
+
 
 /*#rainy{ /*Output page background
   background-image: url("https://images4.alphacoders.com/831/83196.jpg");
