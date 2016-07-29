@@ -174,9 +174,10 @@ th, td { /*Output page table properties, table cells*/
   vertical-align: middle;
 }
 #ch {
-  margin: auto;
-  font-size: 80px;
-  vertical-align: middle;
+    font-size: 90px;
+}
+#welc {
+    font-size: 90px;
 }
 .clothing-rows:hover, .weather-rows:hover {
       background-color: rgba(169, 169, 169, 0.9);
