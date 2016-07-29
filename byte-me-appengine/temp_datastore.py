@@ -95,13 +95,13 @@ class TempDatastoreHandler(webapp2.RequestHandler):
         outfits.Clothing(article="bottom", name="Skinny Jeans", temp=70,
         gender="female", url="http://www.jeans.ch/out/pictures/master/product/1/sol_nudie-jeans-skinny-lin-jeans-women-light-blue-skinny-lin-111818_f_1.png"),
         outfits.Clothing(article="bottom", name="Shorts", temp=80,
-        gender="female", url="https://wakeeffects.com/wp-content/uploads/2015/06/pool-375x374.png"),
+        gender="female", url="http://pngimg.com/upload/jeans_PNG5772.png"),
         outfits.Clothing(article="bottom", name="Shorts", temp=90,
-        gender="female", url="https://wakeeffects.com/wp-content/uploads/2015/06/pool-375x374.png"),
+        gender="female", url="http://pngimg.com/upload/jeans_PNG5772.png"),
         outfits.Clothing(article="bottom", name="Shorts", temp=100,
-        gender="female", url="https://wakeeffects.com/wp-content/uploads/2015/06/pool-375x374.png"),
+        gender="female", url="http://pngimg.com/upload/jeans_PNG5772.png"),
         outfits.Clothing(article="bottom", name="Shorts", temp=110,
-        gender="female", url="https://wakeeffects.com/wp-content/uploads/2015/06/pool-375x374.png"),
+        gender="female", url="http://pngimg.com/upload/jeans_PNG5772.png"),
 
 
         outfits.Clothing(article="shoes", name="Uggs", temp=40,
