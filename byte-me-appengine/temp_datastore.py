@@ -13,6 +13,7 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
 
+#creates common datastore for administrators to pre-load before editing code
 class TempDatastoreHandler(webapp2.RequestHandler):
     def get(self):
         clothing_list= [
@@ -94,13 +95,13 @@ class TempDatastoreHandler(webapp2.RequestHandler):
         outfits.Clothing(article="bottom", name="Skinny Jeans", temp=70,
         gender="female", url="http://www.jeans.ch/out/pictures/master/product/1/sol_nudie-jeans-skinny-lin-jeans-women-light-blue-skinny-lin-111818_f_1.png"),
         outfits.Clothing(article="bottom", name="Shorts", temp=80,
-        gender="female", url="https://wakeeffects.com/wp-content/uploads/2015/06/pool-375x374.png"),
+        gender="female", url="http://pngimg.com/upload/jeans_PNG5772.png"),
         outfits.Clothing(article="bottom", name="Shorts", temp=90,
-        gender="female", url="https://wakeeffects.com/wp-content/uploads/2015/06/pool-375x374.png"),
+        gender="female", url="http://pngimg.com/upload/jeans_PNG5772.png"),
         outfits.Clothing(article="bottom", name="Shorts", temp=100,
-        gender="female", url="https://wakeeffects.com/wp-content/uploads/2015/06/pool-375x374.png"),
+        gender="female", url="http://pngimg.com/upload/jeans_PNG5772.png"),
         outfits.Clothing(article="bottom", name="Shorts", temp=110,
-        gender="female", url="https://wakeeffects.com/wp-content/uploads/2015/06/pool-375x374.png"),
+        gender="female", url="http://pngimg.com/upload/jeans_PNG5772.png"),
 
 
         outfits.Clothing(article="shoes", name="Uggs", temp=40,
@@ -121,6 +122,8 @@ class TempDatastoreHandler(webapp2.RequestHandler):
         gender="female", url="http://cdn.shopify.com/s/files/1/0219/5414/products/SIDE_BAXLEY2_PLATINUM_GOLD_METALLIC_NAPPA_large.png?v=1451439229")
 
         ]
+
+        #prevents duplicates of clothing from being put into the datastore
         for clothing in clothing_list:
           num_matching = outfits.Clothing.query().filter(outfits.Clothing.url == clothing.url).count()
           if not num_matching:

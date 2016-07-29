@@ -13,6 +13,7 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
 
+#creates a clothing object
 class Clothing(ndb.Model):
     article = ndb.StringProperty(required=True)
     name = ndb.StringProperty(required=True)
@@ -22,11 +23,13 @@ class Clothing(ndb.Model):
 
 
 class AdminHandler(webapp2.RequestHandler):
+    #takes user to admin page
     def get(self):
         #allows AdminHandler to display admin.html
         template = jinja_environment.get_template('admin.html')
         self.response.write(template.render())
 
+    #collect user's input for a clothing object and creates one if the input is valid
     def post(self):
         article = self.request.get('kind')
         name = self.request.get('name')
